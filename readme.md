@@ -8,6 +8,12 @@
   - js
   - index.html
 
+## Branches
+Ne travaillez **jamais** sur la branche master. Quand vous avez cloné le repo, créer vous votre branche selon la tâche que vous avez à faire et faites vos commit dessus. Une fois que la tâche sera terminée et validée, la branche sera intégrée au projet.
+Pour créer une nouvelle branche : `git checkout -b nom-de-la-branche`
+Pour faire un commit : `git commit -m "mon commit"`
+Pour push la branche sur le serveur : `git push -u origin nom-de-la-branche`
+
 ## Convention de nomage des classes
 
 > Pour identifier les éléments DOM, utilisez des classes, par exemple : `<div class="container">`
