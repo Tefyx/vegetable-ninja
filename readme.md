@@ -4,8 +4,11 @@
 
 - M426-Repo
   - css
+    - .css
   - html
+    - .html
   - js
+    - .js
   - index.html
 
 ## Branches
