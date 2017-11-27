@@ -17,7 +17,7 @@ Pour créer une nouvelle branche : `git checkout -b nom-de-la-branche` <br>
 Pour faire un commit : `git commit -m "mon commit"` <br>
 Pour push la branche sur le serveur : `git push -u origin nom-de-la-branche` <br>
 
-## Branches
+## Convention de nommage des classes
 
 Pour identifier les éléments DOM, utilisez des classes, par exemple : `<div class="container">` <br>
 Une classe se séléctionne en CSS comme ceci : `.container { background-color: red; }` <br>
