@@ -17,11 +17,11 @@ Pour créer une nouvelle branche : `git checkout -b nom-de-la-branche` <br>
 Pour faire un commit : `git commit -m "mon commit"` <br>
 Pour push la branche sur le serveur : `git push -u origin nom-de-la-branche` <br>
 
-## Convention de nomage des classes
+## Titre
 
 Pour identifier les éléments DOM, utilisez des classes, par exemple : `<div class="container">` <br>
 Une classe se séléctionne en CSS comme ceci : `.container { background-color: red; }` <br>
-Pour le nom des classes, faire selon la hierarchie html, par exemple : 
+Pour le nom des classes, faire selon la hierarchie html, par exemple :
 
 ```
 <div class="homepage">
@@ -34,4 +34,4 @@ Pour le nom des classes, faire selon la hierarchie html, par exemple :
 </div>
 ```
 
-** ! S'assurer de ne pas faire de conflits avec les noms de classes !**
+**! S'assurer de ne pas faire de conflits avec les noms de classes !**
