@@ -1,0 +1,10 @@
+body {
+  background-image: url(../img/backgrounds/home-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  position: relative;
+  left: 50%;
+}
