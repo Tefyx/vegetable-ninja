@@ -2,9 +2,23 @@ body {
   background-image: url(../img/backgrounds/home-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #04142d;
 }
 
 .title {
   position: relative;
-  left: 50%;
+  margin: 0 auto;
+  margin-top: 125px;
+  background-image: url(../img/home-title.png);
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 750px;
+}
+
+.button {
+  margin: 0 auto;
+  width: 315px;
+  height: 100px;
+  background-image: url(../img/ico/button.png);
+  background-repeat: no-repeat;
 }
