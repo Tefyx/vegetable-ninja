@@ -7,7 +7,7 @@ body{
   top: 0px;
   width: 1663px;
   height: 1049px;
-  background-image: url(./img_interface/background.png);
+  background-image: url(../img/background.png);
   background-size: 100% 100%;
   margin-top: 0px;
 
@@ -15,7 +15,7 @@ body{
 #level{
   width: 768px;
   height: 768px;
-  background-image: url(./img_interface/game_here.png);
+  background-image: url(../img/game_here.png);
   margin: 20px auto;
   left: 447.5px;
 }
