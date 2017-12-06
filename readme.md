@@ -1,4 +1,4 @@
-# VEGETABLE NINJA
+# Vegetable Ninja
 
 ## Site
 Enjoy 😉
