@@ -3,7 +3,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #04142d;
-  transition: 1.5s;
+  transition: 2s ease;
 }
 
 .is-visible {
@@ -50,6 +50,7 @@ body {
   height: 100px;
   background-image: url(../img/ico/button.png);
   background-repeat: no-repeat;
+  cursor: pointer;
   transition: .5s;
 }
 
