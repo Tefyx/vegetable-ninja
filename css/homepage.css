@@ -29,7 +29,7 @@ body {
   background-image: url(../img/home-titlev3.png);
   background-repeat: no-repeat;
   height: 70px;
-  width: 750px;
+  width: 678px;
   transition: .5s;
 }
 
@@ -42,6 +42,10 @@ body {
   height: 70px;
   width: 430px;
   transition: .5s;
+}
+
+.level-modal {
+
 }
 
 .button {
