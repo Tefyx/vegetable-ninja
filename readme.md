@@ -1,15 +1,8 @@
-# Module 426
+# Vegetable Ninja
 
-## Structure des fichiers
-
-- M426-Repo
-  - css
-    - .css
-  - html
-    - .html
-  - js
-    - .js
-  - index.html
+## Site
+Enjoy 😉
+ - https://benoit-s8.github.io/vegetable-ninja
 
 ## Branches
 Ne travaillez **jamais** sur la branche master. Quand vous avez cloné le repo, créer vous votre branche selon la tâche que vous avez à faire et faites vos commit dessus. Une fois que la tâche sera terminée et validée, la branche sera intégrée au projet. <br>
@@ -33,5 +26,3 @@ Pour le nom des classes, faire selon la hierarchie html, par exemple :
   </div>
 </div>
 ```
-
-**! S'assurer de ne pas faire de conflits avec les noms de classes !**
