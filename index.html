@@ -13,27 +13,29 @@
     </div>
     <div id="level-title" class="level-title is-display-none is-hidden"></div>
     <div id="button-level-container" class="button-level-container is-display-none is-hidden">
-      <div class="button-level button-level-1">
+      <div onclick="showLevel()" class="button-level button-level-1">
         <a href="#">
           <div class="button-level button-level-1"></div>
         </a>
       </div>
-      <div class="button-level button-level-2">
+      <div onclick="showLevel()" class="button-level button-level-2">
         <a href="#">
           <div class="button-level button-level-2"></div>
         </a>
       </div>
-      <div class="button-level button-level-3">
+      <div onclick="showLevel()" class="button-level button-level-3">
         <a href="#">
           <div class="button-level button-level-3"></div>
         </a>
       </div>
-      <div class="button-level button-level-4">
+      <div onclick="showLevel()" class="button-level button-level-4">
         <a href="#">
           <div class="button-level button-level-4"></div>
         </a>
       </div>
     </div>
-    <div class="level-modal"></div>
+    <div id="level-modal" class="level-modal is-display-none is-hidden is-small">
+      <a id="exit-button" onclick="exitLevel()" class="exit-button is-hidden"></a>
+    </div>
   </body>
 </html>
