@@ -22,6 +22,14 @@ body {
   display: none;
 }
 
+.is-small {
+  transform: scale(.5);
+}
+
+.modal-show {
+  transform: scale(1);
+}
+
 .home-title {
   position: relative;
   margin: 0 auto;
@@ -45,7 +53,14 @@ body {
 }
 
 .level-modal {
-
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: #04142d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .5s;
 }
 
 .button {
@@ -70,9 +85,17 @@ body {
   transition: .5s;
 }
 
-/*.back-button:hover {
-  opacity: .7;
-}*/
+.exit-button {
+  position: absolute;
+  background-image: url(../img/ico/exit-button.png);
+  background-repeat: no-repeat;
+  width: 64px;
+  height: 64px;
+  right: 25px;
+  top: 25px;
+  cursor: pointer;
+  transition: .5s;
+}
 
 .button-level {
   margin: 0 auto;
