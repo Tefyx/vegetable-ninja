@@ -1,11 +1,38 @@
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../css/homepage.css">
-</head>
-<body>
-  <div class="title">
-    <img class="title__piment"/>
-    <h1 class="title__text">Vegetable Ninja</h1>
-    <img class="title__shuriken"/>
-  </div>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <script src="../js/homepage.js"></script>
+  </head>
+  <body id="background">
+    <a id="back-button" onclick="scrollUp()" class="back-button is-hidden"></a>
+    <div id="home-title" class="home-title"></div>
+    <div id="play-button" onclick="scrollDown()" class="button" style="margin-top: 400px;">
+      <div class="button"></div>
+    </div>
+    <div id="level-title" class="level-title is-display-none is-hidden"></div>
+    <div id="button-level-container" class="button-level-container is-display-none is-hidden">
+      <div class="button-level button-level-1">
+        <a href="#">
+          <div class="button-level button-level-1"></div>
+        </a>
+      </div>
+      <div class="button-level button-level-2">
+        <a href="#">
+          <div class="button-level button-level-2"></div>
+        </a>
+      </div>
+      <div class="button-level button-level-3">
+        <a href="#">
+          <div class="button-level button-level-3"></div>
+        </a>
+      </div>
+      <div class="button-level button-level-4">
+        <a href="#">
+          <div class="button-level button-level-4"></div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

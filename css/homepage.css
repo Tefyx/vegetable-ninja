@@ -2,9 +2,104 @@ body {
   background-image: url(../img/backgrounds/home-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #04142d;
+  transition: 2s ease;
 }
 
-.title {
+.is-visible {
+  opacity: 1;
+}
+
+.is-scrolled {
+  background-position-y: -430px;
+}
+
+.is-hidden {
+  opacity: 0;
+}
+
+.is-display-none {
+  display: none;
+}
+
+.home-title {
   position: relative;
-  left: 50%;
+  margin: 0 auto;
+  margin-top: 125px;
+  background-image: url(../img/home-titlev3.png);
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 678px;
+  transition: .5s;
+}
+
+.level-title {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 125px;
+  background-image: url(../img/level-title.png);
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 430px;
+  transition: .5s;
+}
+
+.level-modal {
+
+}
+
+.button {
+  margin: 0 auto;
+  width: 315px;
+  height: 100px;
+  background-image: url(../img/ico/button.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.back-button {
+  position: absolute;
+  background-image: url(../img/ico/back-button.png);
+  background-repeat: no-repeat;
+  width: 64px;
+  height: 64px;
+  right: 25px;
+  top: 25px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+/*.back-button:hover {
+  opacity: .7;
+}*/
+
+.button-level {
+  margin: 0 auto;
+  width: 278px;
+  height: 60px;
+  margin-bottom: 70px;
+  transition: .5s;
+}
+
+.button-level:hover {
+  opacity: .7;
+}
+
+.button-level-1 {
+  background-image: url(../img/ico/button-lvl-1.png);
+}
+.button-level-2 {
+  background-image: url(../img/ico/button-lvl-2.png);
+}
+.button-level-3 {
+  background-image: url(../img/ico/button-lvl-3.png);
+}
+.button-level-4 {
+  background-image: url(../img/ico/button-lvl-4.png);
+}
+
+.button-level-container {
+  margin-top: 100px;
+  transition: .5s;
 }
