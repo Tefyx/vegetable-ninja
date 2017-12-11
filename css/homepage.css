@@ -63,6 +63,14 @@ body {
   transition: .5s;
 }
 
+.level {
+  width: 766px;
+  height: 766px;
+  margin: 80px auto;
+  border: 7px double grey;
+  transition: 1.5s;
+}
+
 .button {
   margin: 0 auto;
   width: 315px;
@@ -102,6 +110,7 @@ body {
   width: 278px;
   height: 60px;
   margin-bottom: 70px;
+  cursor: pointer;
   transition: .5s;
 }
 
