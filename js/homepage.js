@@ -80,6 +80,7 @@ function showLevel() {
 
   setTimeout( function showExitButton() {
     document.getElementById("exit-button").classList.remove("is-hidden");
+    document.getElementById("level-modal-title").classList.add("is-scaled");
   }, 1000);
 }
 
@@ -91,5 +92,6 @@ function exitLevel() {
     document.getElementById("exit-button").classList.add("is-hidden");
     document.getElementById("level").classList.add("is-hidden");
     document.getElementById("level").innerHTML = "";
+    document.getElementById("level-modal-title").classList.remove("is-scaled");
   }, 500);
 }
