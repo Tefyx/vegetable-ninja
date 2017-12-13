@@ -4,7 +4,6 @@ hero.style.left ="100px";
 hero.style.top="100px";
 console.log("loaded");
 function move(event){
-  console.log("test");
   if(event.keyCode == 37){
 
     var x = parseInt(hero.style.left);

@@ -2,29 +2,43 @@ direction = 0;
 
 function start() {
   //var elem = document.getElementById("shuriken");
+  var perso = document.getElementById("hero");
   var elem = document.createElement("IMG");
   elem.src = "../img/Weapons/shuriken.png";
   elem.className = "shuriken";
   elem.direction = direction;
-  elem.pos = 0;
-  container.appendChild(elem);
+  elem.posx = perso.offsetTop + 35;
+  elem.posy = perso.offsetLeft + 45;
+  mybody.appendChild(elem);
+  console.log(elem.posx);
 }
 
 var id = setInterval(frame, 10);
 
 function frame() {
-  for (var i = 0; i < container.children.length; i++) {
-    var elem = container.children[i];
+  for (var i = 0; i < mybody.children.length; i++) {
+    var elem = mybody.children[i];
+    
     if (elem.direction == 119) {
-      elem.style.top = -elem.pos + 'px';
+      elem.style.top = elem.posx + 'px';
+      elem.posx = elem.posx - 3;
+      elem.style.left = elem.posy + 'px';
     }else if (elem.direction == 97) {
-      elem.style.left = -elem.pos + 'px';
+      elem.style.left = elem.posy + 'px';
+      elem.posy = elem.posy - 3;
+      elem.style.top = elem.posx + 'px';
     }else if (elem.direction == 100) {
-      elem.style.left = elem.pos + 'px';
+      elem.style.left = elem.posy + 'px';
+      elem.posy = elem.posy + 3;
+      elem.style.top = elem.posx + 'px';
     }else if (elem.direction == 115) {
-      elem.style.top = elem.pos + 'px';
+      elem.style.top = elem.posx + 'px';
+      elem.posx = elem.posx + 3;
+      elem.style.left = elem.posy + 'px';
     }
-    elem.pos = elem.pos + 5;
+
+
+
   }
 }
 
