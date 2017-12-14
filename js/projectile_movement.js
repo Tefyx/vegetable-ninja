@@ -9,6 +9,8 @@ function start() {
   elem.direction = direction;
   elem.posx = perso.offsetTop + 35;
   elem.posy = perso.offsetLeft + 45;
+  elem.startposx = perso.offsetTop + 35;
+  elem.startposy = perso.offsetLeft + 45;
   mybody.appendChild(elem);
   console.log(elem.posx);
 }
@@ -18,7 +20,7 @@ var id = setInterval(frame, 10);
 function frame() {
   for (var i = 0; i < mybody.children.length; i++) {
     var elem = mybody.children[i];
-    
+
     if (elem.direction == 119) {
       elem.style.top = elem.posx + 'px';
       elem.posx = elem.posx - 3;
@@ -37,7 +39,9 @@ function frame() {
       elem.style.left = elem.posy + 'px';
     }
 
-
+    if (elem.startposx + 300 = elem.posx) {
+      console.log("hiiiiiiiiiiiii");
+    }
 
   }
 }
