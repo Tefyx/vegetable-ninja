@@ -1,20 +1,21 @@
 
 function getMap(){
-var map = ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B',
-'B','S','S','S','S','S','S','S','S','S','S','P','C','P','S','B',
-'B','S','S','R','R','S','P','P','P','P','P','P','P','P','S','B',
-'B','S','S','R','S','S','P','P','P','P','P','P','P','P','S','B',
-'B','R','S','S','S','S','P','P','P','P','P','P','P','P','S','B',
-'B','R','R','S','S','S','P','P','P','S','S','S','S','R','S','B',
-'B','S','S','S','S','S','P','P','P','S','S','S','S','S','S','B',
-'L','L','L','L','L','L','P','P','P','L','L','L','L','L','L','L',
-'L','L','L','L','L','L','P','P','P','L','L','L','L','L','L','L',
-'L','L','L','L','L','L','P','P','P','L','L','L','L','L','L','L',
-'B','S','S','S','S','S','P','P','P','S','S','S','S','S','S','B',
-'B','S','S','R','S','S','P','P','P','S','S','R','S','S','S','B',
-'B','S','S','S','R','S','P','P','P','S','S','S','S','S','S','B',
-'B','S','R','S','R','S','P','P','P','S','S','S','R','S','S','B',
-'B','S','S','R','S','S','P','P','P','S','S','S','S','S','S','B',
-'B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'];
+var map = [
+'B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png',
+'B.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','PL.png','C.png','PR.png','S.png','B.png',
+'B.png','S.png','S.png','R.png','R.png','S.png','PLT.png','PT.png','PT.png','PT.png','P.png','P.png','P.png','PR.png','S.png','B.png',
+'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','P.png','P.png','P.png','P.png','P.png','PR.png','S.png','B.png',
+'B.png','R.png','S.png','S.png','S.png','S.png','PL.png','P.png','PB.png','PB.png','PB.png','PB.png','PB.png','PR.png','S.png','B.png',
+'B.png','R.png','R.png','S.png','S.png','S.png','P.png','PL.png','P.png','S.png','S.png','S.png','S.png','R.png','S.png','B.png',
+'B.png','S.png','S.png','S.png','S.png','S.png','PL.png','P.png','P.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
+'LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','PL.png','P.png','PR.png','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif',
+'L.gif','L.gif','L.gif','L.gif','L.gif','L.gif','PL.png','P.png','PR.png','L.gif','L.gif','L.gif','L.gif','L.gif','L.gif','L.gif',
+'LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','PL.png','P.png','PR.png','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif',
+'B.png','S.png','S.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
+'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','R.png','S.png','S.png','S.png','B.png',
+'B.png','S.png','S.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
+'B.png','S.png','R.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','R.png','S.png','S.png','B.png',
+'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
+'B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png'];
 return map;
 }
