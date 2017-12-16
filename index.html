@@ -11,29 +11,32 @@
     <div id="play-button" onclick="scrollDown()" class="button" style="margin-top: 400px;">
       <div class="button"></div>
     </div>
-    <div id="level-title" class="level-title is-display-none is-hidden"></div>
-    <div id="button-level-container" class="button-level-container is-display-none is-hidden">
-      <div class="button-level button-level-1">
-        <a href="#">
-          <div class="button-level button-level-1"></div>
-        </a>
-      </div>
-      <div class="button-level button-level-2">
-        <a href="#">
-          <div class="button-level button-level-2"></div>
-        </a>
-      </div>
-      <div class="button-level button-level-3">
-        <a href="#">
-          <div class="button-level button-level-3"></div>
-        </a>
-      </div>
-      <div class="button-level button-level-4">
-        <a href="#">
-          <div class="button-level button-level-4"></div>
-        </a>
+    <div class="level-selection-container">
+      <div id="level-title" class="level-title is-display-none is-hidden"></div>
+      <div id="button-level-container" class="button-level-container is-display-none is-hidden">
+        <div onclick="showLevel(1)" class="button-level button-level-1">
+            <div class="button-level button-level-1"></div>
+        </div>
+        <div onclick="showLevel(2)" class="button-level button-level-2">
+            <div class="button-level button-level-2"></div>
+        </div>
+        <div onclick="showLevel(3)" class="button-level button-level-3">
+            <div class="button-level button-level-3"></div>
+        </div>
+        <div onclick="showLevel(4)" class="button-level button-level-4">
+            <div class="button-level button-level-4"></div>
+        </div>
       </div>
     </div>
-    <div class="level-modal"></div>
+    <div id="level-modal" class="level-modal is-display-none is-hidden is-small">
+      <div id="level-modal-title" class="level-modal-title"></div>
+      <h2 id="level-modal-score" class="level-modal-score is-hidden">Score :<span id="score"> 000</span></h2>
+      <a id="exit-button" onclick="exitLevel()" class="exit-button is-hidden"></a>
+      <div id="level" class="level is-hidden">
+        <!-- <div>
+           <img src="img/characters/jedi.jpg" class="hero"/>
+       </div> -->
+     </div>
+    </div>
   </body>
 </html>
