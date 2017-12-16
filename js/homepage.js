@@ -38,48 +38,66 @@ function scrollUp() {
   }, 600);
 }
 
-function showLevel() {
+function showLevel(level_id) {
   document.getElementById("level-modal").classList.remove("is-display-none");
+  if (level_id == 1) {
+    document.getElementById("level-modal-title").classList.add("level-modal-title-1");
+  }
+  if (level_id == 2) {
+    document.getElementById("level-modal-title").classList.add("level-modal-title-2");
+  }
+  if (level_id == 3) {
+    document.getElementById("level-modal-title").classList.add("level-modal-title-3");
+  }
+  if (level_id == 4) {
+    document.getElementById("level-modal-title").classList.add("level-modal-title-4");
+  }
+
   setTimeout( function showModal() {
     document.getElementById("level-modal").classList.remove("is-hidden");
     document.getElementById("level-modal").classList.add("modal-show");
   }, 25);
 
   setTimeout( function createMap() {
-    var thisMap =
-      ['B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B',
-      'B','S','S','S','S','S','S','S','S','S','S','P','C','P','S','B',
-      'B','S','S','R','R','S','P','P','P','P','P','P','P','P','S','B',
-      'B','S','S','R','S','S','P','P','P','P','P','P','P','P','S','B',
-      'B','R','S','S','S','S','P','P','P','P','P','P','P','P','S','B',
-      'B','R','R','S','S','S','P','P','P','S','S','S','S','R','S','B',
-      'B','S','S','S','S','S','P','P','P','S','S','S','S','S','S','B',
-      'L','L','L','L','L','L','P','P','P','L','L','L','L','L','L','L',
-      'L','L','L','L','L','L','P','P','P','L','L','L','L','L','L','L',
-      'L','L','L','L','L','L','P','P','P','L','L','L','L','L','L','L',
-      'B','S','S','S','S','S','P','P','P','S','S','S','S','S','S','B',
-      'B','S','S','R','S','S','P','P','P','S','S','R','S','S','S','B',
-      'B','S','S','S','R','S','P','P','P','S','S','S','S','S','S','B',
-      'B','S','R','S','R','S','P','P','P','S','S','S','R','S','S','B',
-      'B','S','S','R','S','S','P','P','P','S','S','S','S','S','S','B',
-      'B','B','B','B','B','B','B','B','B','B','B','B','B','B','B','B'];
-    for (var i = 0; i < thisMap.length; i++) {
-    var elem = document.createElement("img");
-    elem.src="img/textures/" + thisMap[i]+".png";
-    elem.style.height="6.25%";
-    elem.style.width="6.25%";
-    elem.style.float="left";
-    document.getElementById("level").appendChild(elem);
+    var map = [
+      'B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png',
+      'B.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','PL.png','C.png','PR.png','S.png','B.png',
+      'B.png','S.png','S.png','R.png','R.png','S.png','PTL.png','PT.png','PT.png','PT.png','PT.png','P.png','P.png','PR.png','S.png','B.png',
+      'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','P.png','P.png','P.png','P.png','P.png','PR.png','S.png','B.png',
+      'B.png','R.png','S.png','S.png','S.png','S.png','PL.png','P.png','P.png','PB.png','PB.png','PB.png','PB.png','PB.png','S.png','B.png',
+      'B.png','R.png','R.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','R.png','S.png','B.png',
+      'B.png','S.png','S.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
+      'B.png','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','PL.png','P.png','PR.png','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','B.png',
+      'B.png','L.gif','L.gif','L.gif','L.gif','L.gif','PL.png','P.png','PR.png','L.gif','L.gif','L.gif','L.gif','L.gif','L.gif','B.png',
+      'B.png','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','PL.png','P.png','PR.png','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','B.png',
+      'B.png','S.png','S.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
+      'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','R.png','S.png','S.png','S.png','B.png',
+      'B.png','S.png','S.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
+      'B.png','S.png','R.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','R.png','S.png','S.png','B.png',
+      'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
+      'B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png'
+    ];
+    for (var i = 0; i < map.length; i++) {
+      var elem = document.createElement("img");
+      elem.src="img/textures/" + map[i];
+      elem.style.height="6.25%";
+      elem.style.width="6.25%";
+      elem.style.float="left";
+      document.getElementById("level").appendChild(elem);
     }
   }, 100);
 
   setTimeout( function showMap() {
     document.getElementById("level").classList.remove("is-hidden");
-  }, 500);
+  }, 350);
 
-  setTimeout( function showExitButton() {
-    document.getElementById("exit-button").classList.remove("is-hidden");
+  setTimeout( function showLevelTitle() {
+    document.getElementById("level-modal-title").classList.add("is-scaled");
   }, 1000);
+
+  setTimeout(function showExitButton() {
+    document.getElementById("exit-button").classList.remove("is-hidden");
+  }, 2000);
 }
 
 function exitLevel() {
@@ -90,5 +108,18 @@ function exitLevel() {
     document.getElementById("exit-button").classList.add("is-hidden");
     document.getElementById("level").classList.add("is-hidden");
     document.getElementById("level").innerHTML = "";
+    document.getElementById("level-modal-title").classList.remove("is-scaled");
+    if (level_id == 1) {
+      document.getElementById("level-modal-title").classList.remove("level-modal-title-1");
+    }
+    if (level_id == 2) {
+      document.getElementById("level-modal-title").classList.remove("level-modal-title-2");
+    }
+    if (level_id == 3) {
+      document.getElementById("level-modal-title").classList.remove("level-modal-title-3");
+    }
+    if (level_id == 4) {
+      document.getElementById("level-modal-title").classList.remove("level-modal-title-4");
+    }
   }, 500);
 }
