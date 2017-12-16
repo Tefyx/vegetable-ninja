@@ -38,8 +38,21 @@ function scrollUp() {
   }, 600);
 }
 
-function showLevel() {
+function showLevel(level_id) {
   document.getElementById("level-modal").classList.remove("is-display-none");
+  if (level_id == 1) {
+    document.getElementById("level-modal-title").classList.add("level-modal-title-1");
+  }
+  if (level_id == 2) {
+    document.getElementById("level-modal-title").classList.add("level-modal-title-2");
+  }
+  if (level_id == 3) {
+    document.getElementById("level-modal-title").classList.add("level-modal-title-3");
+  }
+  if (level_id == 4) {
+    document.getElementById("level-modal-title").classList.add("level-modal-title-4");
+  }
+
   setTimeout( function showModal() {
     document.getElementById("level-modal").classList.remove("is-hidden");
     document.getElementById("level-modal").classList.add("modal-show");
@@ -78,10 +91,13 @@ function showLevel() {
     document.getElementById("level").classList.remove("is-hidden");
   }, 350);
 
-  setTimeout( function showExitButton() {
-    document.getElementById("exit-button").classList.remove("is-hidden");
+  setTimeout( function showLevelTitle() {
     document.getElementById("level-modal-title").classList.add("is-scaled");
   }, 1000);
+
+  setTimeout(function showExitButton() {
+    document.getElementById("exit-button").classList.remove("is-hidden");
+  }, 2000);
 }
 
 function exitLevel() {
@@ -93,5 +109,17 @@ function exitLevel() {
     document.getElementById("level").classList.add("is-hidden");
     document.getElementById("level").innerHTML = "";
     document.getElementById("level-modal-title").classList.remove("is-scaled");
+    if (level_id == 1) {
+      document.getElementById("level-modal-title").classList.remove("level-modal-title-1");
+    }
+    if (level_id == 2) {
+      document.getElementById("level-modal-title").classList.remove("level-modal-title-2");
+    }
+    if (level_id == 3) {
+      document.getElementById("level-modal-title").classList.remove("level-modal-title-3");
+    }
+    if (level_id == 4) {
+      document.getElementById("level-modal-title").classList.remove("level-modal-title-4");
+    }
   }, 500);
 }
