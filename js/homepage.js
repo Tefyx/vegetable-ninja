@@ -97,6 +97,7 @@ function showLevel(level_id) {
 
   setTimeout(function showExitButton() {
     document.getElementById("exit-button").classList.remove("is-hidden");
+    document.getElementById("level-modal-score").classList.remove("is-hidden");
   }, 2000);
 }
 
@@ -106,9 +107,11 @@ function exitLevel() {
   setTimeout( function closeModal() {
     document.getElementById("level-modal").classList.add("is-display-none");
     document.getElementById("exit-button").classList.add("is-hidden");
+    document.getElementById("level-modal-score").classList.add("is-hidden");
     document.getElementById("level").classList.add("is-hidden");
     document.getElementById("level").innerHTML = "";
     document.getElementById("level-modal-title").classList.remove("is-scaled");
+    // showLevel.apply(arguments);
     if (level_id == 1) {
       document.getElementById("level-modal-title").classList.remove("level-modal-title-1");
     }
