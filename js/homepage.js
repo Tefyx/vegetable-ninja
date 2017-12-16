@@ -104,14 +104,14 @@ function showLevel(level_id) {
 function exitLevel() {
   document.getElementById("level-modal").classList.add("is-hidden");
   document.getElementById("level-modal").classList.remove("modal-show");
-  setTimeout( function closeModal() {
+  setTimeout( function closeModal(level_id) {
     document.getElementById("level-modal").classList.add("is-display-none");
     document.getElementById("exit-button").classList.add("is-hidden");
     document.getElementById("level-modal-score").classList.add("is-hidden");
     document.getElementById("level").classList.add("is-hidden");
     document.getElementById("level").innerHTML = "";
     document.getElementById("level-modal-title").classList.remove("is-scaled");
-    // showLevel.apply(arguments);
+    // showLevel.apply(this, arguments);
     if (level_id == 1) {
       document.getElementById("level-modal-title").classList.remove("level-modal-title-1");
     }

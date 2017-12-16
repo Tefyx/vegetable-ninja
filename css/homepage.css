@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Minecraft;
+    src: url(../fonts/Minecrat.ttf);
+}
+
 body {
   background-image: url(../img/backgrounds/home-background.jpg);
   background-repeat: no-repeat;
@@ -41,7 +46,7 @@ body {
   position: relative;
   margin: 0 auto;
   margin-top: 125px;
-  background-image: url(../img/home-titlev3.png);
+  background-image: url(../img/titles/home-title.png);
   background-repeat: no-repeat;
   height: 70px;
   width: 678px;
@@ -52,7 +57,7 @@ body {
   position: relative;
   margin: 0 auto;
   margin-top: 125px;
-  background-image: url(../img/level-title.png);
+  background-image: url(../img/titles/level-title.png);
   background-repeat: no-repeat;
   height: 70px;
   width: 430px;
@@ -186,4 +191,10 @@ body {
 .button-level-container {
   margin-top: 100px;
   transition: .5s;
+}
+
+.hero {
+    position:absolute;
+    height:100px;
+    width:100px;
 }
