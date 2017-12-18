@@ -26,19 +26,19 @@ function frame() {
 
     if (elem.direction == 119) {
       elem.style.top = elem.posx + 'px';
-      elem.posx = elem.posx - 3;
+      elem.posx = elem.posx - 4;
       elem.style.left = elem.posy + 'px';
     }else if (elem.direction == 97) {
       elem.style.left = elem.posy + 'px';
-      elem.posy = elem.posy - 3;
+      elem.posy = elem.posy - 4;
       elem.style.top = elem.posx + 'px';
     }else if (elem.direction == 100) {
       elem.style.left = elem.posy + 'px';
-      elem.posy = elem.posy + 3;
+      elem.posy = elem.posy + 4;
       elem.style.top = elem.posx + 'px';
     }else if (elem.direction == 115) {
       elem.style.top = elem.posx + 'px';
-      elem.posx = elem.posx + 3;
+      elem.posx = elem.posx + 4;
       elem.style.left = elem.posy + 'px';
     }
 
