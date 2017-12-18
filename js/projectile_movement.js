@@ -1,4 +1,7 @@
 direction = 0;
+var hero = document.getElementById("hero");
+hero.style.left ="100px";
+hero.style.top="100px";
 
 function start() {
   //var elem = document.getElementById("shuriken");
@@ -39,10 +42,6 @@ function frame() {
       elem.style.left = elem.posy + 'px';
     }
 
-    if (elem.startposx + 300 = elem.posx) {
-      console.log("hiiiiiiiiiiiii");
-    }
-
   }
 }
 
@@ -50,15 +49,23 @@ function frame() {
 window.onkeypress = function(event) {
   if (event.keyCode == 100) {
     direction = event.keyCode;
+    var x = parseInt(hero.style.left);
+    hero.style.left = (x+48) + "px";
   }
   if (event.keyCode == 119) {
     direction = event.keyCode;
+    var y = parseInt(hero.style.top);
+    hero.style.top = (y-48) + "px";
   }
   if (event.keyCode == 97) {
     direction = event.keyCode;
+    var x = parseInt(hero.style.left);
+    hero.style.left = (x-48) + "px";
   }
   if (event.keyCode == 115) {
     direction = event.keyCode;
+    var y = parseInt(hero.style.top);
+    hero.style.top = (y+48) + "px";
   }
    if (event.keyCode == 112) {
      start();
