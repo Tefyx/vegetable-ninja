@@ -2,22 +2,30 @@ direction = 0;
 var hero = document.getElementById("hero");
 hero.style.left ="100px";
 hero.style.top="100px";
+var fired = false;
+
 
 function start() {
   //var elem = document.getElementById("shuriken");
-  var perso = document.getElementById("hero");
-  var elem = document.createElement("IMG");
-  elem.src = "../img/Weapons/shuriken.png";
-  elem.className = "shuriken";
-  elem.direction = direction;
-  elem.posx = perso.offsetTop + 35;
-  elem.posy = perso.offsetLeft + 45;
-  elem.startposx = perso.offsetTop + 35;
-  elem.startposy = perso.offsetLeft + 45;
-  mybody.appendChild(elem);
-  console.log(elem.posx);
+  if (!fired) {
+       fired = true;
+       setTimeout(unfired, 500);
+       var perso = document.getElementById("hero");
+       var elem = document.createElement("IMG");
+       elem.src = "../img/Weapons/shuriken.png";
+       elem.className = "shuriken";
+       elem.direction = direction;
+       elem.posx = perso.offsetTop + 35;
+       elem.posy = perso.offsetLeft + 45;
+       elem.startposx = perso.offsetTop + 35;
+       elem.startposy = perso.offsetLeft + 45;
+       mybody.appendChild(elem);
+   }
 }
 
+function unfired() {
+  fired = false;
+}
 var id = setInterval(frame, 10);
 
 function frame() {
@@ -41,7 +49,8 @@ function frame() {
       elem.posx = elem.posx + 4;
       elem.style.left = elem.posy + 'px';
     }
-
+if (posx = 600) {
+}
   }
 }
 
