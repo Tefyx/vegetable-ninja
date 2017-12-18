@@ -1,5 +1,9 @@
 let hero;
 
+function init() {
+console.log("coucou");
+}
+
 function scrollDown() {
   document.getElementById("play-button").classList.add("is-hidden");
   document.getElementById("home-title").classList.add("is-hidden");
@@ -42,6 +46,7 @@ function scrollUp() {
 
 function showLevel(level_id) {
   document.getElementById("level-modal").classList.remove("is-display-none");
+  document.getElementById("level-modal").niveau = level_id;
   if (level_id == 1) {
     document.getElementById("level-modal-title").classList.add("level-modal-title-1");
   }
@@ -115,14 +120,14 @@ function showLevel(level_id) {
 function exitLevel() {
   document.getElementById("level-modal").classList.add("is-hidden");
   document.getElementById("level-modal").classList.remove("modal-show");
-  setTimeout( function closeModal(level_id) {
+  setTimeout( function closeModal() {
     document.getElementById("level-modal").classList.add("is-display-none");
     document.getElementById("exit-button").classList.add("is-hidden");
     document.getElementById("level-modal-score").classList.add("is-hidden");
     document.getElementById("level").classList.add("is-hidden");
     document.getElementById("level").innerHTML = '<div id="div-hero"></div>';
     document.getElementById("level-modal-title").classList.remove("is-scaled");
-    // showLevel.apply(this, arguments);
+    level_id = document.getElementById("level-modal").niveau;
     if (level_id == 1) {
       document.getElementById("level-modal-title").classList.remove("level-modal-title-1");
     }
