@@ -2,4 +2,6 @@
     position:absolute;
     height:100px;
     width:100px;
+    object-fit: contain;
+    width: 50px;
 }

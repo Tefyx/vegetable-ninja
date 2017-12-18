@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/homepage.css">
     <script src="js/homepage.js"></script>
   </head>
-  <body id="background">
+  <body id="background" onload="init()">
     <a id="back-button" onclick="scrollUp()" class="back-button is-hidden"></a>
     <div id="home-title" class="home-title"></div>
     <div id="play-button" onclick="scrollDown()" class="button" style="margin-top: 400px;">
@@ -33,9 +33,9 @@
       <h2 id="level-modal-score" class="level-modal-score is-hidden">Score :<span id="score"> 000</span></h2>
       <a id="exit-button" onclick="exitLevel()" class="exit-button is-hidden"></a>
       <div id="level" class="level is-hidden">
-        <!-- <div>
-           <img src="img/characters/jedi.jpg" class="hero"/>
-       </div> -->
+        <div id="div-hero">
+           <!-- <img id="hero" src="img/characters/ninja.png" class="hero"/> -->
+       </div>
      </div>
     </div>
   </body>
