@@ -1,3 +1,5 @@
+let hero;
+
 function scrollDown() {
   document.getElementById("play-button").classList.add("is-hidden");
   document.getElementById("home-title").classList.add("is-hidden");
@@ -85,6 +87,15 @@ function showLevel(level_id) {
       elem.style.float="left";
       document.getElementById("level").appendChild(elem);
     }
+    hero = document.createElement("img");
+    hero.src="img/characters/ninja.png"
+    hero.style.height="6.25%";
+    hero.style.height="6.25%";
+    hero.style.float="left";
+    hero.style.position="absolute";
+    hero.style.left ="100px";
+    hero.style.top="100px";
+    document.getElementById("div-hero").appendChild(hero);
   }, 100);
 
   setTimeout( function showMap() {
@@ -109,7 +120,7 @@ function exitLevel() {
     document.getElementById("exit-button").classList.add("is-hidden");
     document.getElementById("level-modal-score").classList.add("is-hidden");
     document.getElementById("level").classList.add("is-hidden");
-    document.getElementById("level").innerHTML = "";
+    document.getElementById("level").innerHTML = '<div id="div-hero"></div>';
     document.getElementById("level-modal-title").classList.remove("is-scaled");
     // showLevel.apply(this, arguments);
     if (level_id == 1) {
@@ -126,3 +137,25 @@ function exitLevel() {
     }
   }, 500);
 }
+
+// Hero moves
+function move(event){
+  if(event.keyCode == 37){
+    var x = parseInt(hero.style.left);
+    hero.style.left = (x-48) + "px";
+  }
+  else if(event.keyCode == 38){
+    var y = parseInt(hero.style.top);
+    hero.style.top = (y-48) + "px";
+  }
+  else if (event.keyCode == 39) {
+    var x = parseInt(hero.style.left);
+    hero.style.left = (x+48) + "px";
+  }
+  else if (event.keyCode == 40) {
+    var y = parseInt(hero.style.top);
+    hero.style.top = (y+48) + "px";
+  }
+}
+
+document.onkeydown = move;

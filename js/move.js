@@ -1,9 +1,10 @@
 
 var hero = document.getElementById("hero");
-hero.style.left ="100px";
-hero.style.top="100px";
+
 console.log("loaded");
 function move(event){
+  hero.style.left ="100px";
+  hero.style.top="100px";
   console.log("test");
   if(event.keyCode == 37){
 
