@@ -85,6 +85,13 @@ function showLevel(level_id) {
       elem.style.height="6.25%";
       elem.style.width="6.25%";
       elem.style.float="left";
+      if(map[i] == "L.gif" || map[i] == "LT.gif" || map[i] == "LB.gif" || map[i] == "B.png" || map[i] == "R.png"){
+        elem.traversable = false;
+      }
+      else{
+        elem.traversable = true;
+      }
+      elem.id = "t"+i;
       document.getElementById("level").appendChild(elem);
     }
     hero = document.createElement("img");
@@ -93,8 +100,10 @@ function showLevel(level_id) {
     hero.style.height="6.25%";
     hero.style.float="left";
     hero.style.position="absolute";
-    hero.style.left ="100px";
-    hero.style.top="100px";
+    hero.style.left ="96px";
+    hero.style.top="96px";
+    hero.posx = 2;
+    hero.posy = 2;
     document.getElementById("div-hero").appendChild(hero);
   }, 100);
 
@@ -138,24 +147,36 @@ function exitLevel() {
   }, 500);
 }
 
+function getTile(y,x){
+  console.log(x + " " + y);
+  return document.getElementById("t"+(y*16+x));
+}
+
 // Hero moves
 function move(event){
+
   if(event.keyCode == 37){
-    var x = parseInt(hero.style.left);
-    hero.style.left = (x-48) + "px";
+    if(getTile(hero.posy, hero.posx-1).traversable){
+      hero.posx--;
+    }
   }
   else if(event.keyCode == 38){
-    var y = parseInt(hero.style.top);
-    hero.style.top = (y-48) + "px";
+    if(getTile(hero.posy-1, hero.posx).traversable){
+      hero.posy--;
+    }
   }
   else if (event.keyCode == 39) {
-    var x = parseInt(hero.style.left);
-    hero.style.left = (x+48) + "px";
+    if(getTile(hero.posy, hero.posx+1).traversable){
+      hero.posx++;
+    }
   }
   else if (event.keyCode == 40) {
-    var y = parseInt(hero.style.top);
-    hero.style.top = (y+48) + "px";
+    if(getTile(hero.posy+1, hero.posx).traversable){
+      hero.posy++;
+    }
   }
+  hero.style.top = (hero.posy*48) +"px";
+  hero.style.left = (hero.posx*48) + "px";
 }
 
 document.onkeydown = move;
