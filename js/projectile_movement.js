@@ -1,82 +1,100 @@
+// Initialize Components
 direction = 0;
+var fired = false;
+var id = setInterval(frame, 10);
+
+//Initialize hero
 var hero = document.getElementById("hero");
 hero.style.left ="100px";
 hero.style.top="100px";
-var fired = false;
 
-
+//Create and fire a projectile
 function start() {
-  //var elem = document.getElementById("shuriken");
-  if (!fired) {
+
+  //check if fired = false
+  if (!fired) { //if false, Initialize a shuriken and set fired = true
        fired = true;
        setTimeout(unfired, 500);
-       var perso = document.getElementById("hero");
+
+       //Initialize a shuriken
        var elem = document.createElement("IMG");
        elem.src = "../img/Weapons/shuriken.png";
        elem.className = "shuriken";
        elem.direction = direction;
-       elem.posx = perso.offsetTop + 35;
-       elem.posy = perso.offsetLeft + 45;
-       elem.startposx = perso.offsetTop + 35;
-       elem.startposy = perso.offsetLeft + 45;
+       elem.posx = hero.offsetTop + 35;
+       elem.posy = hero.offsetLeft + 45;
+       elem.startposx = hero.offsetTop + 35;
+       elem.startposy = hero.offsetLeft + 45;
        mybody.appendChild(elem);
    }
 }
 
+//set fired to false
 function unfired() {
   fired = false;
 }
-var id = setInterval(frame, 10);
 
+//Control movement of projectiles
 function frame() {
   for (var i = 0; i < mybody.children.length; i++) {
     var elem = mybody.children[i];
+    if (elem.className=="shuriken"){
 
-    if (elem.direction == 119) {
-      elem.style.top = elem.posx + 'px';
-      elem.posx = elem.posx - 4;
-      elem.style.left = elem.posy + 'px';
-    }else if (elem.direction == 97) {
-      elem.style.left = elem.posy + 'px';
-      elem.posy = elem.posy - 4;
-      elem.style.top = elem.posx + 'px';
-    }else if (elem.direction == 100) {
-      elem.style.left = elem.posy + 'px';
-      elem.posy = elem.posy + 4;
-      elem.style.top = elem.posx + 'px';
-    }else if (elem.direction == 115) {
-      elem.style.top = elem.posx + 'px';
-      elem.posx = elem.posx + 4;
-      elem.style.left = elem.posy + 'px';
+      //Deplacements des shurikens
+      if (elem.direction == "UP") { // UP (W)
+        elem.style.top = elem.posx + 'px';
+        elem.posx = elem.posx - 4;
+        elem.style.left = elem.posy + 'px';
+      }else if (elem.direction == "LEFT") { // LEFT (A)
+        elem.style.left = elem.posy + 'px';
+        elem.posy = elem.posy - 4;
+        elem.style.top = elem.posx + 'px';
+      }else if (elem.direction == "RIGHT") { // RIGHT (D)
+        elem.style.left = elem.posy + 'px';
+        elem.posy = elem.posy + 4;
+        elem.style.top = elem.posx + 'px';
+      }else if (elem.direction == "DOWN") { // DOWN (S)
+        elem.style.top = elem.posx + 'px';
+        elem.posx = elem.posx + 4;
+        elem.style.left = elem.posy + 'px';
+      }
+
+      //Supprime l'elem si portée atteinte
+      if (elem.posx >= elem.startposx + 456 || elem.posx <= elem.startposx - 456) {
+        mybody.removeChild(elem);
+      }
+      if (elem.posy >= elem.startposy + 456 || elem.posy <= elem.startposy - 456) {
+        mybody.removeChild(elem);
+      }
     }
-if (posx = 600) {
-}
   }
 }
 
-
+// Listen to keys pressed
 window.onkeypress = function(event) {
-  if (event.keyCode == 100) {
-    direction = event.keyCode;
+  if (event.keyCode == 100 || event.keyCode == 39) {
+    direction = "RIGHT";
     var x = parseInt(hero.style.left);
     hero.style.left = (x+48) + "px";
   }
-  if (event.keyCode == 119) {
-    direction = event.keyCode;
+  if (event.keyCode == 119 || event.keyCode == 38) {
+    direction = "UP";
     var y = parseInt(hero.style.top);
     hero.style.top = (y-48) + "px";
   }
-  if (event.keyCode == 97) {
-    direction = event.keyCode;
+  if (event.keyCode == 97 || event.keyCode == 37) {
+    direction = "LEFT";
     var x = parseInt(hero.style.left);
     hero.style.left = (x-48) + "px";
   }
-  if (event.keyCode == 115) {
-    direction = event.keyCode;
+  if (event.keyCode == 115 || event.keyCode == 40) {
+    direction = "DOWN";
     var y = parseInt(hero.style.top);
     hero.style.top = (y+48) + "px";
   }
    if (event.keyCode == 112) {
-     start();
+     if (direction) {
+       start();
+     }
    }
 }
