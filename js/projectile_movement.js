@@ -1,5 +1,6 @@
 // Initialize Components
 direction = 0;
+var weapon = "shuriken"
 var fired = false;
 var id = setInterval(frame, 10);
 
@@ -12,14 +13,42 @@ hero.style.top="100px";
 function fire() {
 
   //check if fired = false
-  if (!fired) { //if false, Initialize a shuriken and set fired = true
-       fired = true;
-       setTimeout(unfired, 500);
+  if (!fired) {
+
 
        //Initialize a shuriken
-       var elem = document.createElement("IMG");
-       elem.src = "../img/Weapons/shuriken.png";
-       elem.className = "shuriken";
+       if (weapon == "shuriken") {
+
+         fired = true;
+         setTimeout(unfired, 500);
+
+         var elem = document.createElement("IMG");
+         elem.src = "../img/Weapons/shuriken.png";
+         elem.className = "shuriken";
+         elem.speed = 5;
+       }
+       if (weapon == "kunai") {
+
+         fired = true;
+         setTimeout(unfired, 1000);
+
+         var elem = document.createElement("IMG");
+         elem.className = "kunai"
+         elem.speed = 7;
+
+         if (direction =="UP") {
+           elem.src = "../img/Weapons/kunai_up.png";
+         }
+         if (direction =="DOWN") {
+           elem.src = "../img/Weapons/kunai_down.png";
+         }
+         if (direction =="LEFT") {
+           elem.src = "../img/Weapons/kunai_left.png";
+         }
+         if (direction =="RIGHT") {
+           elem.src = "../img/Weapons/kunai_right.png";
+         }
+       }
        elem.direction = direction;
        elem.posx = hero.offsetTop + 35;
        elem.posy = hero.offsetLeft + 45;
@@ -40,22 +69,22 @@ function frame() {
     var elem = mybody.children[i];
 
     // Shuriken movement
-    if (elem.className=="shuriken"){
+    if (elem.className == "shuriken" || elem.className == "kunai"){
       if (elem.direction == "UP") { // UP (W)
         elem.style.top = elem.posx + 'px';
-        elem.posx = elem.posx - 4;
+        elem.posx = elem.posx - elem.speed;
         elem.style.left = elem.posy + 'px';
       }else if (elem.direction == "LEFT") { // LEFT (A)
         elem.style.left = elem.posy + 'px';
-        elem.posy = elem.posy - 4;
+        elem.posy = elem.posy - elem.speed;
         elem.style.top = elem.posx + 'px';
       }else if (elem.direction == "RIGHT") { // RIGHT (D)
         elem.style.left = elem.posy + 'px';
-        elem.posy = elem.posy + 4;
+        elem.posy = elem.posy + elem.speed;
         elem.style.top = elem.posx + 'px';
       }else if (elem.direction == "DOWN") { // DOWN (S)
         elem.style.top = elem.posx + 'px';
-        elem.posx = elem.posx + 4;
+        elem.posx = elem.posx + elem.speed;
         elem.style.left = elem.posy + 'px';
       }
 
@@ -95,6 +124,13 @@ window.onkeypress = function(event) {
    if (event.keyCode == 112) { // FIRE (P)
      if (direction) {
        fire();
+     }
+   }
+   if (event.keyCode == 107) { //CHANGE WEAPON (K)
+     if (weapon == "shuriken") {
+       weapon = "kunai";
+     }else if (weapon == "kunai") {
+       weapon = "shuriken";
      }
    }
 }
