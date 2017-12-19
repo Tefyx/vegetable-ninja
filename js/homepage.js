@@ -1,68 +1,95 @@
+let play_button;
+let home_title;
+let background;
+let level_title;
+let level;
+let button_level_container;
+let back_button;
+let exit_button;
+let level_modal;
+let level_modal_title;
+let level_modal_score;
+let div_hero;
 let hero;
 
+// Init variables
 function init() {
-console.log("coucou");
+  play_button = document.getElementById("play-button");
+  home_title = document.getElementById("home-title");
+  background = document.getElementById("background");
+  level_title = document.getElementById("level-title");
+  button_level_container = document.getElementById("button-level-container");
+  back_button = document.getElementById("back-button");
+  level = document.getElementById("level");
+  level_modal = document.getElementById("level-modal");
+  level_modal_title = document.getElementById("level-modal-title");
+  level_modal_score = document.getElementById("level-modal-score");
+  exit_button = document.getElementById("exit-button");
+  div_hero = document.getElementById("div-hero");
 }
 
+// On play click
 function scrollDown() {
-  document.getElementById("play-button").classList.add("is-hidden");
-  document.getElementById("home-title").classList.add("is-hidden");
-  document.getElementById("background").classList.add("is-scrolled");
+  play_button.classList.add("is-hidden");
+  home_title.classList.add("is-hidden");
+  background.classList.add("is-scrolled");
   setTimeout( function hiddenHome() {
-    document.getElementById("play-button").classList.add("is-display-none");
-    document.getElementById("home-title").classList.add("is-display-none");
-    document.getElementById("level-title").classList.remove("is-display-none");
-    document.getElementById("button-level-container").classList.remove("is-display-none");
-    document.getElementById("back-button").classList.remove("is-display-none");
+    play_button.classList.add("is-display-none");
+    home_title.classList.add("is-display-none");
+    level_title.classList.remove("is-display-none");
+    button_level_container.classList.remove("is-display-none");
+    back_button.classList.remove("is-display-none");
   }, 500);
 
   setTimeout( function showLevelSelection() {
-    document.getElementById("level-title").classList.remove("is-hidden");
-    document.getElementById("button-level-container").classList.remove("is-hidden");
-    document.getElementById("back-button").classList.remove("is-hidden");
+    level_title.classList.remove("is-hidden");
+    button_level_container.classList.remove("is-hidden");
+    back_button.classList.remove("is-hidden");
   }, 600);
 }
 
+// On return to home
 function scrollUp() {
-  document.getElementById("background").classList.remove("is-scrolled");
-  document.getElementById("level-title").classList.add("is-hidden");
-  document.getElementById("button-level-container").classList.add("is-hidden");
-  document.getElementById("back-button").classList.add("is-hidden");
+  background.classList.remove("is-scrolled");
+  level_title.classList.add("is-hidden");
+  button_level_container.classList.add("is-hidden");
+  back_button.classList.add("is-hidden");
   setTimeout( function hiddenLevelSelection() {
-    document.getElementById("play-button").classList.remove("is-display-none");
-    document.getElementById("home-title").classList.remove("is-display-none");
-    document.getElementById("level-title").classList.add("is-display-none");
-    document.getElementById("button-level-container").classList.add("is-display-none");
-    document.getElementById("back-button").classList.add("is-display-none");
+    play_button.classList.remove("is-display-none");
+    home_title.classList.remove("is-display-none");
+    level_title.classList.add("is-display-none");
+    button_level_container.classList.add("is-display-none");
+    back_button.classList.add("is-display-none");
   }, 500);
 
   setTimeout( function showHome() {
-    document.getElementById("play-button").classList.remove("is-hidden");
-    document.getElementById("home-title").classList.remove("is-hidden");
-    document.getElementById("level-title").classList.add("is-display-none");
-    document.getElementById("button-level-container").classList.add("is-display-none");
+    play_button.classList.remove("is-hidden");
+    home_title.classList.remove("is-hidden");
+    level_title.classList.add("is-display-none");
+    button_level_container.classList.add("is-display-none");
   }, 600);
 }
 
+// On level opening
 function showLevel(level_id) {
-  document.getElementById("level-modal").classList.remove("is-display-none");
-  document.getElementById("level-modal").niveau = level_id;
+  level_modal.classList.remove("is-display-none");
+  level_modal.niveau = level_id;
   if (level_id == 1) {
-    document.getElementById("level-modal-title").classList.add("level-modal-title-1");
+    level_modal_title.classList.add("level-modal-title-1");
   }
   if (level_id == 2) {
-    document.getElementById("level-modal-title").classList.add("level-modal-title-2");
+    level_modal_title.classList.add("level-modal-title-2");
   }
   if (level_id == 3) {
-    document.getElementById("level-modal-title").classList.add("level-modal-title-3");
+    level_modal_title.classList.add("level-modal-title-3");
   }
   if (level_id == 4) {
-    document.getElementById("level-modal-title").classList.add("level-modal-title-4");
+    level_modal_title.classList.add("level-modal-title-4");
   }
 
   setTimeout( function showModal() {
-    document.getElementById("level-modal").classList.remove("is-hidden");
-    document.getElementById("level-modal").classList.add("modal-show");
+    level_modal.classList.remove("is-hidden");
+    level_modal.classList.add("modal-show");
   }, 25);
 
   setTimeout( function createMap() {
@@ -90,7 +117,7 @@ function showLevel(level_id) {
       elem.style.height="6.25%";
       elem.style.width="6.25%";
       elem.style.float="left";
-      document.getElementById("level").appendChild(elem);
+      level.appendChild(elem);
     }
     hero = document.createElement("img");
     hero.src="img/characters/ninja.png"
@@ -104,41 +131,44 @@ function showLevel(level_id) {
   }, 100);
 
   setTimeout( function showMap() {
-    document.getElementById("level").classList.remove("is-hidden");
+    level.classList.remove("is-hidden");
   }, 350);
 
   setTimeout( function showLevelTitle() {
-    document.getElementById("level-modal-title").classList.add("is-scaled");
+    level_modal_title.classList.add("is-scaled");
   }, 1000);
 
   setTimeout(function showExitButton() {
-    document.getElementById("exit-button").classList.remove("is-hidden");
-    document.getElementById("level-modal-score").classList.remove("is-hidden");
+    exit_button.classList.remove("is-hidden");
+    level_modal_score.classList.remove("is-hidden");
   }, 2000);
+
+  document.onkeydown = move;
 }
 
+// On level closing
 function exitLevel() {
-  document.getElementById("level-modal").classList.add("is-hidden");
-  document.getElementById("level-modal").classList.remove("modal-show");
+  level_modal.classList.add("is-hidden");
+  level_modal.classList.remove("modal-show");
   setTimeout( function closeModal() {
-    document.getElementById("level-modal").classList.add("is-display-none");
-    document.getElementById("exit-button").classList.add("is-hidden");
-    document.getElementById("level-modal-score").classList.add("is-hidden");
-    document.getElementById("level").classList.add("is-hidden");
-    document.getElementById("level").innerHTML = '<div id="div-hero"></div>';
-    document.getElementById("level-modal-title").classList.remove("is-scaled");
-    level_id = document.getElementById("level-modal").niveau;
+    level_modal.classList.add("is-display-none");
+    exit_button.classList.add("is-hidden");
+    level_modal_score.classList.add("is-hidden");
+    level.classList.add("is-hidden");
+    level.innerHTML = '<div id="div-hero"></div>';
+    level_modal_title.classList.remove("is-scaled");
+    level_id = level_modal.niveau;
     if (level_id == 1) {
-      document.getElementById("level-modal-title").classList.remove("level-modal-title-1");
+      level_modal_title.classList.remove("level-modal-title-1");
     }
     if (level_id == 2) {
-      document.getElementById("level-modal-title").classList.remove("level-modal-title-2");
+      level_modal_title.classList.remove("level-modal-title-2");
     }
     if (level_id == 3) {
-      document.getElementById("level-modal-title").classList.remove("level-modal-title-3");
+      level_modal_title.classList.remove("level-modal-title-3");
     }
     if (level_id == 4) {
-      document.getElementById("level-modal-title").classList.remove("level-modal-title-4");
+      level_modal_title.classList.remove("level-modal-title-4");
     }
   }, 500);
 }
@@ -162,5 +192,3 @@ function move(event){
     hero.style.top = (y+48) + "px";
   }
 }
-
-document.onkeydown = move;
