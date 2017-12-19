@@ -9,7 +9,7 @@ hero.style.left ="100px";
 hero.style.top="100px";
 
 //Create and fire a projectile
-function start() {
+function fire() {
 
   //check if fired = false
   if (!fired) { //if false, Initialize a shuriken and set fired = true
@@ -38,9 +38,9 @@ function unfired() {
 function frame() {
   for (var i = 0; i < mybody.children.length; i++) {
     var elem = mybody.children[i];
-    if (elem.className=="shuriken"){
 
-      //Deplacements des shurikens
+    // Shuriken movement
+    if (elem.className=="shuriken"){
       if (elem.direction == "UP") { // UP (W)
         elem.style.top = elem.posx + 'px';
         elem.posx = elem.posx - 4;
@@ -59,7 +59,7 @@ function frame() {
         elem.style.left = elem.posy + 'px';
       }
 
-      //Supprime l'elem si portée atteinte
+      //Delete elem if max range
       if (elem.posx >= elem.startposx + 456 || elem.posx <= elem.startposx - 456) {
         mybody.removeChild(elem);
       }
@@ -72,29 +72,29 @@ function frame() {
 
 // Listen to keys pressed
 window.onkeypress = function(event) {
-  if (event.keyCode == 100 || event.keyCode == 39) {
+  if (event.keyCode == 100 || event.keyCode == 39) { // RIGHT (D) or (KEY_RIGHT)
     direction = "RIGHT";
     var x = parseInt(hero.style.left);
     hero.style.left = (x+48) + "px";
   }
-  if (event.keyCode == 119 || event.keyCode == 38) {
+  if (event.keyCode == 119 || event.keyCode == 38) { // UP (W) or (KEY_UP)
     direction = "UP";
     var y = parseInt(hero.style.top);
     hero.style.top = (y-48) + "px";
   }
-  if (event.keyCode == 97 || event.keyCode == 37) {
+  if (event.keyCode == 97 || event.keyCode == 37) { // LEFT (A) or (KEY_LEFT)
     direction = "LEFT";
     var x = parseInt(hero.style.left);
     hero.style.left = (x-48) + "px";
   }
-  if (event.keyCode == 115 || event.keyCode == 40) {
+  if (event.keyCode == 115 || event.keyCode == 40) { // DOWN (S) or (KEY_DOWN)
     direction = "DOWN";
     var y = parseInt(hero.style.top);
     hero.style.top = (y+48) + "px";
   }
-   if (event.keyCode == 112) {
+   if (event.keyCode == 112) { // FIRE (P)
      if (direction) {
-       start();
+       fire();
      }
    }
 }
