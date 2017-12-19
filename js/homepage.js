@@ -9,7 +9,6 @@ let exit_button;
 let level_modal;
 let level_modal_title;
 let level_modal_score;
-let div_hero;
 let hero;
 
 // Init variables
@@ -25,7 +24,6 @@ function init() {
   level_modal_title = document.getElementById("level-modal-title");
   level_modal_score = document.getElementById("level-modal-score");
   exit_button = document.getElementById("exit-button");
-  div_hero = document.getElementById("div-hero");
 }
 
 // On play click
