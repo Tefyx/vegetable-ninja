@@ -9,7 +9,6 @@ let exit_button;
 let level_modal;
 let level_modal_title;
 let level_modal_score;
-let div_hero;
 let hero;
 
 // Init variables
@@ -25,7 +24,6 @@ function init() {
   level_modal_title = document.getElementById("level-modal-title");
   level_modal_score = document.getElementById("level-modal-score");
   exit_button = document.getElementById("exit-button");
-  div_hero = document.getElementById("div-hero");
 }
 
 // On play click
@@ -127,7 +125,7 @@ function showLevel(level_id) {
     hero.style.position="absolute";
     hero.style.left ="100px";
     hero.style.top="100px";
-    div_hero.appendChild(hero);
+    document.getElementById("div-hero");.appendChild(hero);
   }, 100);
 
   setTimeout( function showMap() {
@@ -142,7 +140,7 @@ function showLevel(level_id) {
     exit_button.classList.remove("is-hidden");
     level_modal_score.classList.remove("is-hidden");
   }, 2000);
-  
+
   document.onkeydown = move;
 }
 
