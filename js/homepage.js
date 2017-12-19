@@ -125,7 +125,7 @@ function showLevel(level_id) {
     hero.style.position="absolute";
     hero.style.left ="100px";
     hero.style.top="100px";
-    document.getElementById("div-hero");.appendChild(hero);
+    document.getElementById("div-hero").appendChild(hero);
   }, 100);
 
   setTimeout( function showMap() {
