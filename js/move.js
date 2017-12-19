@@ -1,8 +1,10 @@
 
 var hero = document.getElementById("hero");
+
 hero.style.left ="100px";
 hero.style.top="100px";
 function move(event){
+
   if(event.keyCode == 37){
 
     var x = parseInt(hero.style.left);
