@@ -116,8 +116,7 @@ function disappear(x, y) {
   mybody.appendChild(disappear);
   setTimeout(function() {
     mybody.removeChild(disappear);
-  },200)
-  console.log("yo");
+  },300)
 }
 
 // Listen to keys pressed
