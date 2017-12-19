@@ -173,19 +173,23 @@ function exitLevel() {
 
 // Hero moves
 function move(event){
-  if(event.keyCode == 37){
+  // Left
+  if(event.keyCode == 37 || event.keyCode === 65){
     var x = parseInt(hero.style.left);
     hero.style.left = (x-48) + "px";
   }
-  else if(event.keyCode == 38){
+  // Down
+  else if(event.keyCode == 38 || event.keyCode === 87){
     var y = parseInt(hero.style.top);
     hero.style.top = (y-48) + "px";
   }
-  else if (event.keyCode == 39) {
+  // Right
+  else if (event.keyCode == 39 || event.keyCode === 68) {
     var x = parseInt(hero.style.left);
     hero.style.left = (x+48) + "px";
   }
-  else if (event.keyCode == 40) {
+  // Up
+  else if (event.keyCode == 40 || event.keyCode === 83) {
     var y = parseInt(hero.style.top);
     hero.style.top = (y+48) + "px";
   }
