@@ -1,3 +1,5 @@
+putain
+
 let play_button;
 let home_title;
 let background;
