@@ -54,10 +54,10 @@ function fire() {
          }
        }
        elem.direction = direction;
-       elem.posx = hero.offsetTop + 35;
-       elem.posy = hero.offsetLeft + 45;
-       elem.startposx = hero.offsetTop + 35;
-       elem.startposy = hero.offsetLeft + 45;
+       elem.posy = hero.offsetTop + 35;
+       elem.posx = hero.offsetLeft + 45;
+       elem.startposy = hero.offsetTop + 35;
+       elem.startposx = hero.offsetLeft + 45;
        mybody.appendChild(elem);
    }
 }
@@ -75,32 +75,49 @@ function frame() {
     // Shuriken movement
     if (elem.className == "shuriken" || elem.className == "kunai"){
       if (elem.direction == "UP") { // UP (W)
-        elem.style.top = elem.posx + 'px';
-        elem.posx = elem.posx - elem.speed;
-        elem.style.left = elem.posy + 'px';
-      }else if (elem.direction == "LEFT") { // LEFT (A)
-        elem.style.left = elem.posy + 'px';
+        elem.style.top = elem.posy + 'px';
         elem.posy = elem.posy - elem.speed;
-        elem.style.top = elem.posx + 'px';
+        elem.style.left = elem.posx + 'px';
+      }else if (elem.direction == "LEFT") { // LEFT (A)
+        elem.style.left = elem.posx + 'px';
+        elem.posx = elem.posx - elem.speed;
+        elem.style.top = elem.posy + 'px';
       }else if (elem.direction == "RIGHT") { // RIGHT (D)
-        elem.style.left = elem.posy + 'px';
-        elem.posy = elem.posy + elem.speed;
-        elem.style.top = elem.posx + 'px';
-      }else if (elem.direction == "DOWN") { // DOWN (S)
-        elem.style.top = elem.posx + 'px';
+        elem.style.left = elem.posx + 'px';
         elem.posx = elem.posx + elem.speed;
-        elem.style.left = elem.posy + 'px';
+        elem.style.top = elem.posy + 'px';
+      }else if (elem.direction == "DOWN") { // DOWN (S)
+        elem.style.top = elem.posy + 'px';
+        elem.posy = elem.posy + elem.speed;
+        elem.style.left = elem.posx + 'px';
       }
 
       //Delete elem if max range
       if (elem.posx >= elem.startposx + 456 || elem.posx <= elem.startposx - 456) {
+        disappear(elem.offsetLeft, elem.offsetTop);
         mybody.removeChild(elem);
       }
       if (elem.posy >= elem.startposy + 456 || elem.posy <= elem.startposy - 456) {
+        disappear(elem.offsetLeft, elem.offsetTop);
         mybody.removeChild(elem);
       }
     }
   }
+}
+
+function disappear(x, y) {
+  var disappear = document.createElement("IMG")
+  disappear.src = "../img/Weapons/disappear.gif";
+  disappear.style.height = "30px";
+  disappear.style.widht = "30px";
+  disappear.style.position = "absolute";
+  disappear.style.top = y + 'px';
+  disappear.style.left = x + 'px';
+  mybody.appendChild(disappear);
+  setTimeout(function() {
+    mybody.removeChild(disappear);
+  },200)
+  console.log("yo");
 }
 
 // Listen to keys pressed
