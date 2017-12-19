@@ -1,0 +1,10 @@
+.shuriken{
+  position: absolute;
+  height: 30px;
+  width: 30px;
+}
+#container{
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+}
