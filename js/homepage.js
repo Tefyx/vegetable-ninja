@@ -115,6 +115,13 @@ function showLevel(level_id) {
       elem.style.height="6.25%";
       elem.style.width="6.25%";
       elem.style.float="left";
+      if(map[i] == "L.gif" || map[i] == "LT.gif" || map[i] == "LB.gif" || map[i] == "B.png" || map[i] == "R.png"){
+         elem.traversable = false;
+       }
+       else{
+         elem.traversable = true;
+       }
+      elem.id = "t"+i;
       level.appendChild(elem);
     }
     hero = document.createElement("img");
@@ -123,8 +130,10 @@ function showLevel(level_id) {
     hero.style.height="6.25%";
     hero.style.float="left";
     hero.style.position="absolute";
-    hero.style.left ="100px";
-    hero.style.top="100px";
+    hero.style.left ="96px";
+    hero.style.top="96px";
+    hero.posx = 2;
+    hero.posy = 2;
     document.getElementById("div-hero").appendChild(hero);
   }, 100);
 
@@ -171,26 +180,38 @@ function exitLevel() {
   }, 500);
 }
 
+// Get the tiles
+function getTile(y,x){
+   return document.getElementById("t"+(y*16+x));
+}
+
 // Hero moves
 function move(event){
   // Left
-  if(event.keyCode == 37 || event.keyCode === 65){
-    var x = parseInt(hero.style.left);
-    hero.style.left = (x-48) + "px";
+  if(event.keyCode == 37 || event.keyCode === 65) {
+    if(getTile(hero.posy, hero.posx-1).traversable) {
+      hero.posx--;
+    }
   }
   // Down
-  else if(event.keyCode == 38 || event.keyCode === 87){
-    var y = parseInt(hero.style.top);
-    hero.style.top = (y-48) + "px";
+  else if(event.keyCode == 38 || event.keyCode === 87) {
+    if(getTile(hero.posy-1, hero.posx).traversable) {
+      hero.posy--;
+    }
   }
   // Right
   else if (event.keyCode == 39 || event.keyCode === 68) {
-    var x = parseInt(hero.style.left);
-    hero.style.left = (x+48) + "px";
+    if(getTile(hero.posy, hero.posx+1).traversable) {
+      hero.posx++;
+    }
   }
   // Up
   else if (event.keyCode == 40 || event.keyCode === 83) {
-    var y = parseInt(hero.style.top);
-    hero.style.top = (y+48) + "px";
+    if(getTile(hero.posy+1, hero.posx).traversable) {
+      hero.posy++;
+    }
   }
+
+  hero.style.top = (hero.posy*48) +"px";
+  hero.style.left = (hero.posx*48) + "px";
 }
