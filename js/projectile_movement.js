@@ -38,9 +38,13 @@ function fire() {
 
          if (direction =="UP") {
            elem.src = "../img/Weapons/kunai_up.png";
+           elem.style.height = "60px";
+           elem.style.width = "20px";
          }
          if (direction =="DOWN") {
            elem.src = "../img/Weapons/kunai_down.png";
+           elem.style.height = "60px";
+           elem.style.width = "20px";
          }
          if (direction =="LEFT") {
            elem.src = "../img/Weapons/kunai_left.png";
