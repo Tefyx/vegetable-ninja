@@ -92,22 +92,22 @@ function showLevel(level_id) {
 
   setTimeout( function createMap() {
     var map = [
-      'B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png',
-      'B.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','PL.png','C.png','PR.png','S.png','B.png',
-      'B.png','S.png','S.png','R.png','R.png','S.png','PTL.png','PT.png','PT.png','PT.png','PT.png','P.png','P.png','PR.png','S.png','B.png',
-      'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','P.png','P.png','P.png','P.png','P.png','PR.png','S.png','B.png',
-      'B.png','R.png','S.png','S.png','S.png','S.png','PL.png','P.png','P.png','PB.png','PB.png','PB.png','PB.png','PB.png','S.png','B.png',
-      'B.png','R.png','R.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','R.png','S.png','B.png',
-      'B.png','S.png','S.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
-      'B.png','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','PL.png','P.png','PR.png','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','B.png',
-      'B.png','L.gif','L.gif','L.gif','L.gif','L.gif','PL.png','P.png','PR.png','L.gif','L.gif','L.gif','L.gif','L.gif','L.gif','B.png',
-      'B.png','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','PL.png','P.png','PR.png','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','B.png',
-      'B.png','S.png','S.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
-      'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','R.png','S.png','S.png','S.png','B.png',
-      'B.png','S.png','S.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
-      'B.png','S.png','R.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','R.png','S.png','S.png','B.png',
-      'B.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','B.png',
-      'B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png','B.png'
+      'R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png',
+      'R.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','PTL.png','C.png','PTR.png','S.png','R.png',
+      'R.png','S.png','S.png','R.png','R.png','S.png','PTL.png','PT.png','PT.png','PT.png','PT.png','P.png','P.png','PR.png','S.png','R.png',
+      'R.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','P.png','P.png','P.png','P.png','P.png','PR.png','S.png','R.png',
+      'R.png','R.png','S.png','S.png','S.png','S.png','PL.png','P.png','P.png','PB.png','PB.png','PB.png','PB.png','PBR.png','S.png','R.png',
+      'R.png','R.png','R.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','R.png','S.png','R.png',
+      'R.png','S.png','S.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','R.png',
+      'LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','Bridge1.gif','Bridge2.png','Bridge3.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif','LT.gif',
+      'L.gif','L.gif','L.gif','L.gif','L.gif','L.gif','Bridge4.png','Bridge5.png','Bridge6.gif','L.gif','L.gif','L.gif','L.gif','L.gif','L.gif','L.gif',
+      'LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','Bridge7.gif','Bridge8.png','Bridge9.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif','LB.gif',
+      'R.png','S.png','S.png','S.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','R.png',
+      'R.png','S.png','S.png','R.png','S.png','S.png','PL.png','P.png','PR.png','S.png','S.png','R.png','S.png','S.png','S.png','R.png',
+      'R.png','S.png','S.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','R.png',
+      'R.png','S.png','R.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','R.png','S.png','S.png','R.png',
+      'R.png','S.png','S.png','R.png','S.png','S.png','PBL.png','PB.png','PBR.png','S.png','S.png','S.png','S.png','S.png','S.png','R.png',
+      'R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png'
     ];
     for (var i = 0; i < map.length; i++) {
       var elem = document.createElement("img");
