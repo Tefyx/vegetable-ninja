@@ -237,7 +237,7 @@ function frame() {
           elem.posy = elem.posy + elem.speed;
           elem.style.left = elem.posx + 'px';
         }
-        if(getTile(Math.floor(elem.posy/48), Math.floor(elem.posx/48)-1).traversable) {
+        if(getTile(Math.floor(elem.posy/48), Math.floor(elem.posx/48)).traversable) {
         }else {
           disappear(elem.offsetLeft, elem.offsetTop);
           level.removeChild(elem);
