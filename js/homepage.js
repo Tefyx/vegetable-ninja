@@ -200,10 +200,10 @@ function fire() {
          }
        }
        elem.direction = direction;
-       elem.posy = hero.offsetTop + 20;
-       elem.posx = hero.offsetLeft + 15;
-       elem.startposy = hero.offsetTop + 20;
-       elem.startposx = hero.offsetLeft + 15;
+       elem.posy = hero.offsetTop + 24;
+       elem.posx = hero.offsetLeft + 20;
+       elem.startposy = hero.offsetTop + 24;
+       elem.startposx = hero.offsetLeft + 20;
        level.appendChild(elem);
    }
 }
