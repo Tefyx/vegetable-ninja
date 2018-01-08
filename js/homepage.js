@@ -262,9 +262,11 @@ function frame() {
           disappear(elem.offsetLeft, elem.offsetTop,elem.className,"hero_hit");
           level.removeChild(elem);
         }
-        if(elem.posy < mew.posy*48 + 48 && elem.posy > mew.posy*48 && elem.posx < mew.posx*48 && mew.posx > mew.posx*48 -48) {
+
+        if(elem.posy < mew.posy*48 + 48 && elem.posy > mew.posy*48 && elem.posx < mew.posx*48 + 48 && elem.posx > mew.posx*48 && elem.className !="carotte") {
           disappear(elem.offsetLeft, elem.offsetTop,elem.className,"mew_hit");
           level.removeChild(elem);
+          document.getElementById("div-mew").removeChild(mew);
         }
 
         //Delete elem if max range
@@ -284,12 +286,13 @@ function disappear(x, y,className, action) {
   var disappear = document.createElement("IMG");
   if (className =="carotte" && action == "hero_hit") {
     disappear.src = "./img/Effects/blood.png";
-    new Audio('./sound/effects/hit.mp3').play()
+    new Audio('./sound/effects/hit.mp3').play();
     hero.style.left ="338px";
     hero.style.top="672px";
     hero.posx = 7;
     hero.posy = 14;
-  }else if action == "mew-hit"{
+  }else if(action == "mew-hit"){
+    console.log("YO");
     disappear.src = "./img/Effects/fire.gif";
     level.removeChild(mew);
   } else {
@@ -308,7 +311,7 @@ function disappear(x, y,className, action) {
 
 function ennemy_fire(){
   var elem = document.createElement("IMG");
-  elem.className = "carotte"
+  elem.className = "carotte";
   elem.speed = 7;
   elem.direction = "LEFT";
   elem.posy = mew.offsetTop + 24;
