@@ -204,6 +204,9 @@ function fire() {
        elem.posx = hero.offsetLeft + 20;
        elem.startposy = hero.offsetTop + 24;
        elem.startposx = hero.offsetLeft + 20;
+
+       elem.style.top = elem.posy + 'px';
+       elem.style.left = elem.posx + 'px';
        level.appendChild(elem);
    }
 }
