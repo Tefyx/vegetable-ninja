@@ -14,6 +14,7 @@ let direction;
 var weapon = "shuriken";
 var fired = false;
 var id = setInterval(frame, 10);
+setInterval(ennemy_fire, 1500);
 
 // Init variables
 function init() {
@@ -138,6 +139,18 @@ function showLevel(level_id) {
     hero.posx = 2;
     hero.posy = 2;
     document.getElementById("div-hero").appendChild(hero);
+
+    mew = document.createElement("img");
+    mew.src="img/characters/jedi.jpg"
+    mew.style.height="6.25%";
+    mew.style.float="left";
+    mew.style.position="absolute";
+    mew.style.left ="672px";
+    mew.style.top="288px";
+    mew.posx = 14;
+    mew.posy = 6;
+    mew.traversable = false;
+    document.getElementById("div-mew").appendChild(mew);
   }, 100);
 
   setTimeout( function showMap() {
@@ -222,7 +235,7 @@ function frame() {
     var elem = level.children[i];
 
     // Shuriken movement
-    if (elem.className == "shuriken" || elem.className == "kunai"){
+    if (elem.className == "shuriken" || elem.className == "kunai" || elem.className == "carotte"){
         if (elem.direction == "UP") { // UP (W)
           elem.style.top = elem.posy + 'px';
           elem.posy = elem.posy - elem.speed;
@@ -271,6 +284,21 @@ function disappear(x, y) {
   setTimeout(function() {
     level.removeChild(disappear);
   },300)
+}
+
+function ennemy_fire(){
+  var elem = document.createElement("IMG");
+  elem.className = "carotte"
+  elem.speed = 7;
+  elem.direction = "LEFT";
+  elem.posy = mew.offsetTop + 24;
+  elem.posx = mew.offsetLeft + 20;
+  elem.src = "./img/Weapons/kunai_left.png";
+  elem.style.top = elem.posy + 'px';
+  elem.style.left = elem.posx + 'px';
+  level.appendChild(elem);
+  frame();
+
 }
 
 // On level closing
@@ -349,7 +377,7 @@ function move(event){
       weapon = "shuriken";
     }
   }
-
+  console.log(hero.posy + ""+ hero.posx-1);
   hero.style.top = (hero.posy*48) +"px";
   hero.style.left = (hero.posx*48) + "px";
 }

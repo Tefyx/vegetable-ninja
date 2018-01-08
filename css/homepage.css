@@ -218,3 +218,8 @@ animation:spin 2s linear infinite;
   height: 20px;
   width: 60px;
 }
+.carotte{
+  position: absolute;
+  height: 20px;
+  width: 60px;
+}
