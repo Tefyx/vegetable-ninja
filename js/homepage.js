@@ -262,6 +262,10 @@ function frame() {
           disappear(elem.offsetLeft, elem.offsetTop,elem.className,"hero_hit");
           level.removeChild(elem);
         }
+        if(elem.posy < mew.posy*48 + 48 && elem.posy > mew.posy*48 && elem.posx < mew.posx*48 && mew.posx > mew.posx*48 -48) {
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"mew_hit");
+          level.removeChild(elem);
+        }
 
         //Delete elem if max range
         if (elem.posx >= elem.startposx + 235 || elem.posx <= elem.startposx - 235) {
@@ -285,7 +289,10 @@ function disappear(x, y,className, action) {
     hero.style.top="672px";
     hero.posx = 7;
     hero.posy = 14;
-  }else {
+  }else if action == "mew-hit"{
+    disappear.src = "./img/Effects/fire.gif";
+    level.removeChild(mew);
+  } else {
     disappear.src = "./img/Effects/disappear.gif";
   }
   disappear.style.height = "30px";
