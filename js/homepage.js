@@ -134,14 +134,14 @@ function showLevel(level_id) {
     hero.style.height="6.25%";
     hero.style.float="left";
     hero.style.position="absolute";
-    hero.style.left ="96px";
-    hero.style.top="96px";
-    hero.posx = 2;
-    hero.posy = 2;
+    hero.style.left ="338px";
+    hero.style.top="672px";
+    hero.posx = 7;
+    hero.posy = 14;
     document.getElementById("div-hero").appendChild(hero);
 
     mew = document.createElement("img");
-    mew.src="img/characters/jedi.jpg"
+    mew.src="img/characters/mewtwo.gif"
     mew.style.height="6.25%";
     mew.style.float="left";
     mew.style.position="absolute";
@@ -255,26 +255,39 @@ function frame() {
         }
         if(getTile(Math.floor(elem.posy/48), Math.floor(elem.posx/48)).traversable) {
         }else {
-          disappear(elem.offsetLeft, elem.offsetTop);
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"wall_hit");
+          level.removeChild(elem);
+        }
+        if(elem.posy < hero.posy*48 + 48 && elem.posy > hero.posy*48 && elem.posx < hero.posx*48 && elem.posx > hero.posx*48 -48) {
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"hero_hit");
           level.removeChild(elem);
         }
 
         //Delete elem if max range
         if (elem.posx >= elem.startposx + 235 || elem.posx <= elem.startposx - 235) {
-          disappear(elem.offsetLeft, elem.offsetTop);
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"limit");
           level.removeChild(elem);
         }
         if (elem.posy >= elem.startposy + 235 || elem.posy <= elem.startposy - 235) {
-          disappear(elem.offsetLeft, elem.offsetTop);
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"limit");
           level.removeChild(elem);
         }
     }
   }
 }
 
-function disappear(x, y) {
-  var disappear = document.createElement("IMG")
-  disappear.src = "./img/Weapons/disappear.gif";
+function disappear(x, y,className, action) {
+  var disappear = document.createElement("IMG");
+  if (className =="carotte" && action == "hero_hit") {
+    disappear.src = "./img/Effects/blood.png";
+    new Audio('./sound/effects/hit.mp3').play()
+    hero.style.left ="338px";
+    hero.style.top="672px";
+    hero.posx = 7;
+    hero.posy = 14;
+  }else {
+    disappear.src = "./img/Effects/disappear.gif";
+  }
   disappear.style.height = "30px";
   disappear.style.widht = "30px";
   disappear.style.position = "absolute";
@@ -292,7 +305,7 @@ function ennemy_fire(){
   elem.speed = 7;
   elem.direction = "LEFT";
   elem.posy = mew.offsetTop + 24;
-  elem.posx = mew.offsetLeft + 20;
+  elem.posx = mew.offsetLeft - 10;
   elem.src = "./img/Weapons/kunai_left.png";
   elem.style.top = elem.posy + 'px';
   elem.style.left = elem.posx + 'px';
@@ -377,7 +390,6 @@ function move(event){
       weapon = "shuriken";
     }
   }
-  console.log(hero.posy + ""+ hero.posx-1);
   hero.style.top = (hero.posy*48) +"px";
   hero.style.left = (hero.posx*48) + "px";
 }

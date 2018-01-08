@@ -220,6 +220,6 @@ animation:spin 2s linear infinite;
 }
 .carotte{
   position: absolute;
-  height: 20px;
-  width: 60px;
+  height: 10px;
+  width: 30px;
 }
