@@ -91,7 +91,12 @@ function showLevel(level_id) {
   }, 25);
 
   setTimeout( function createMap() {
-    var map = [
+    var map;
+    var startpositionleft;
+    var startpositiontop;
+
+    if (level_id == 1){
+      map = [
       'R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png',
       'R.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','S.png','PTL.png','C.png','PTR.png','S.png','R.png',
       'R.png','S.png','S.png','R.png','R.png','S.png','PTL.png','PT.png','PT.png','PT.png','PT.png','P.png','P.png','PR.png','S.png','R.png',
@@ -107,8 +112,35 @@ function showLevel(level_id) {
       'R.png','S.png','S.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','S.png','S.png','S.png','R.png',
       'R.png','S.png','R.png','S.png','R.png','S.png','PL.png','P.png','PR.png','S.png','S.png','S.png','R.png','S.png','S.png','R.png',
       'R.png','S.png','S.png','R.png','S.png','S.png','PBL.png','PB.png','PBR.png','S.png','S.png','S.png','S.png','S.png','S.png','R.png',
-      'R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png'
-    ];
+      'R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png','R.png']
+    startpositionleft = 3;
+    startpositiontop = 3;
+  }else if (level_id == 2){
+    map = [
+    'Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png',
+    'Bush.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','Bush.png',
+    'Bush.png','Tree2_1.png','Tree2_2.png','Tree2_3.png','PGTL.png','PGH.png','PGH.png','PGH.png','PGH.png','PGH.png','PGH.png','PGH.png','PGH.png','PGH.png','G.png','Bush.png',
+    'Bush.png','Tree2_4.png','Tree2_5.png','Tree2_6.png','PGV.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','Bush.png',
+    'Bush.png','Tree2_7.png','Tree2_8.png','Tree2_9.png','PGV.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','Bush.png',
+    'Bush.png','G.png','G.png','G.png','PGV.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','Lac2_3.png','Lac2_4.png','Lac2_5.png','Bush.png',
+    'Bush.png','G.png','G.png','G.png','PGV.png','G.png','G.png','G.png','G.png','G.png','G.png','G.png','Lac2_8.png','W.png','Lac2_10.png','Bush.png',
+    'Bush.png','G.png','G.png','G.png','PGBL.png','PGH.png','PGH.png','PGH.png','PGTR.png','G.png','G.png','G.png','Lac2_13.png','W.png','Lac2_15.png','Bush.png',
+    'Bush.png','G.png','Tree1_1.png','Tree1_2.png','Tree1_3.png','G.png','G.png','G.png','PGV.png','G.png','G.png','G.png','Lac2_18.png','Lac2_19.png','Lac2_20.png','Bush.png',
+    'Bush.png','G.png','Tree1_4.png','Tree1_5.png','Tree1_6.png','G.png','G.png','G.png','G.png','G.png','G.png','Lac2_22.png','Lac2_23.png','Lac2_24.png','G.png','Bush.png',
+    'Bush.png','G.png','Tree1_7.png','Tree1_8.png','Tree1_9.png','G.png','G.png','G.png','G.png','G.png','G.png','Lac2_27.png','W.png','Lac2_29.png','G.png','Bush.png',
+    'Bush.png','G.png','Lac1_2.png','Lac1_3.png','G.png','G.png','G.png','G.png','G.png','G.png','Lac2_31.png','Lac2_32.png','W.png','Lac2_34.png','G.png','Bush.png',
+    'Bush.png','Lac1_6.png','Lac1_7.png','Lac1_8.png','Lac1_9.png','G.png','G.png','G.png','G.png','G.png','Lac2_36.png','W.png','W.png','Lac2_39.png','G.png','Bush.png',
+    'Bush.png','Lac1_11.png','W.png','W.png','Lac1_14.png','Lac1_15.png','G.png','G.png','G.png','G.png','Lac2_41.png','W.png','W.png','Lac2_44.png','Lac2_45.png','Bush.png',
+    'Bush.png','Lac1_16.png','Lac1_17.png','Lac1_18.png','Lac1_19.png','Lac1_20.png','G.png','G.png','G.png','G.png','Lac2_46.png','Lac2_47.png','Lac2_48.png','Lac2_49.png','Lac2_50.png','Bush.png',
+    'Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png','Bush.png']
+    startpositionleft = 8;
+    startpositiontop = 2;
+  }else{
+    var map = ['R.png']
+    startpositionleft = 8;
+    startpositiontop = 2;
+  }
+
     for (var i = 0; i < map.length; i++) {
       var elem = document.createElement("img");
       elem.src="img/textures/" + map[i];
@@ -130,8 +162,8 @@ function showLevel(level_id) {
     hero.style.height="6.25%";
     hero.style.float="left";
     hero.style.position="absolute";
-    hero.style.left ="96px";
-    hero.style.top="96px";
+    hero.style.left=(startpositionleft-1) * 48 + "px";
+    hero.style.top=(startpositiontop-1) * 48 + "px";
     hero.posx = 2;
     hero.posy = 2;
     document.getElementById("div-hero").appendChild(hero);
