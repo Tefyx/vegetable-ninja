@@ -295,7 +295,6 @@ function disappear(x, y,className, action) {
     hero.posx = 7;
     hero.posy = 14;
   }else if(action == "mew-hit"){
-    console.log("YO");
     disappear.src = "./img/Effects/fire.gif";
     level.removeChild(mew);
   } else if (className !="carotte" && action == "hero_hit") {
