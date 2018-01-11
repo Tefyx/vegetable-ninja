@@ -13,8 +13,8 @@ let hero;
 let direction;
 var weapon = "shuriken";
 var fired = false;
-var ennemy_fireInterval;
-var frameInterval;
+var id = setInterval(frame, 10);
+setInterval(ennemy_fire, 1500);
 
 // Init variables
 function init() {
@@ -151,8 +151,6 @@ function showLevel(level_id) {
     mew.posy = 6;
     mew.traversable = false;
     document.getElementById("div-mew").appendChild(mew);
-    frameInterval = setInterval(frame, 10);
-    ennemy_fireInterval = setInterval(ennemy_fire, 1500);
   }, 100);
 
   setTimeout( function showMap() {
@@ -260,14 +258,13 @@ function frame() {
           disappear(elem.offsetLeft, elem.offsetTop,elem.className,"wall_hit");
           level.removeChild(elem);
         }
-        if(elem.posy < hero.posy*48 + 48 && elem.posy > hero.posy*48 && elem.posx < hero.posx*48 && elem.posx > hero.posx*48 -48 && elem.className =="carotte") {
+        if(elem.posy < hero.posy*48 + 48 && elem.posy > hero.posy*48 && elem.posx < hero.posx*48 && elem.posx > hero.posx*48 -48) {
           disappear(elem.offsetLeft, elem.offsetTop,elem.className,"hero_hit");
           level.removeChild(elem);
         }
 
         if(elem.posy < mew.posy*48 + 48 && elem.posy > mew.posy*48 && elem.posx < mew.posx*48 + 48 && elem.posx > mew.posx*48 && elem.className !="carotte") {
           disappear(elem.offsetLeft, elem.offsetTop,elem.className,"mew_hit");
-          clearInterval(ennemy_fireInterval);
           level.removeChild(elem);
           document.getElementById("div-mew").removeChild(mew);
         }
@@ -298,9 +295,7 @@ function disappear(x, y,className, action) {
     console.log("YO");
     disappear.src = "./img/Effects/fire.gif";
     level.removeChild(mew);
-  } else if (className !="carotte" && action == "hero_hit") {
-    return;
-  }else {
+  } else {
     disappear.src = "./img/Effects/disappear.gif";
   }
   disappear.style.height = "30px";
