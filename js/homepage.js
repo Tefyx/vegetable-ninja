@@ -15,7 +15,8 @@ let hero;
 let direction;
 var weapon = "shuriken";
 var fired = false;
-var id = setInterval(frame, 10);
+var ennemy_fireInterval;
+var frameInterval;
 
 // Init variables
 function init() {
@@ -137,11 +138,25 @@ function showLevel(level_id) {
     hero.style.height="6.25%";
     hero.style.float="left";
     hero.style.position="absolute";
-    hero.style.left ="96px";
-    hero.style.top="96px";
-    hero.posx = 2;
-    hero.posy = 2;
+    hero.style.left ="338px";
+    hero.style.top="672px";
+    hero.posx = 7;
+    hero.posy = 14;
     document.getElementById("div-hero").appendChild(hero);
+
+    mew = document.createElement("img");
+    mew.src="img/characters/mewtwo.gif"
+    mew.style.height="6.25%";
+    mew.style.float="left";
+    mew.style.position="absolute";
+    mew.style.left ="672px";
+    mew.style.top="288px";
+    mew.posx = 14;
+    mew.posy = 6;
+    mew.traversable = false;
+    document.getElementById("div-mew").appendChild(mew);
+    frameInterval = setInterval(frame, 10);
+    ennemy_fireInterval = setInterval(ennemy_fire, 1500);
   }, 100);
 
   setTimeout( function showMap() {
@@ -249,47 +264,74 @@ function frame() {
     var elem = level.children[i];
 
     // Shuriken movement
-    if (elem.className == "shuriken" || elem.className == "kunai") {
-      if (elem.direction == "UP") { // UP (W)
-        elem.style.top = elem.posy + 'px';
-        elem.posy = elem.posy - elem.speed;
-        elem.style.left = elem.posx + 'px';
-      } else if (elem.direction == "LEFT") { // LEFT (A)
-        elem.style.left = elem.posx + 'px';
-        elem.posx = elem.posx - elem.speed;
-        elem.style.top = elem.posy + 'px';
-      } else if (elem.direction == "RIGHT") { // RIGHT (D)
-        elem.style.left = elem.posx + 'px';
-        elem.posx = elem.posx + elem.speed;
-        elem.style.top = elem.posy + 'px';
-      } else if (elem.direction == "DOWN") { // DOWN (S)
-        elem.style.top = elem.posy + 'px';
-        elem.posy = elem.posy + elem.speed;
-        elem.style.left = elem.posx + 'px';
-      }
-      if (getTile(Math.floor(elem.posy/48), Math.floor(elem.posx/48)).traversable) {
-      }
-      else {
-        disappear(elem.offsetLeft, elem.offsetTop);
-        level.removeChild(elem);
-      }
+    if (elem.className == "shuriken" || elem.className == "kunai" || elem.className == "carotte"){
+        if (elem.direction == "UP") { // UP (W)
+          elem.style.top = elem.posy + 'px';
+          elem.posy = elem.posy - elem.speed;
+          elem.style.left = elem.posx + 'px';
+        } 
+        else if (elem.direction == "LEFT") { // LEFT (A)
+          elem.style.left = elem.posx + 'px';
+          elem.posx = elem.posx - elem.speed;
+          elem.style.top = elem.posy + 'px';
+        } 
+        else if (elem.direction == "RIGHT") { // RIGHT (D)
+          elem.style.left = elem.posx + 'px';
+          elem.posx = elem.posx + elem.speed;
+          elem.style.top = elem.posy + 'px';
+        } 
+        else if (elem.direction == "DOWN") { // DOWN (S)
+          elem.style.top = elem.posy + 'px';
+          elem.posy = elem.posy + elem.speed;
+          elem.style.left = elem.posx + 'px';
+        }
+        if(getTile(Math.floor(elem.posy/48), Math.floor(elem.posx/48)).traversable) {}
+        else {
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"wall_hit");
+          level.removeChild(elem);
+        }
+        if(elem.posy < hero.posy*48 + 48 && elem.posy > hero.posy*48 && elem.posx < hero.posx*48 && elem.posx > hero.posx*48 -48 && elem.className =="carotte") {
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"hero_hit");
+          level.removeChild(elem);
+        }
 
-      // Delete elem if max range
-      if (elem.posx >= elem.startposx + 235 || elem.posx <= elem.startposx - 235) {
-        disappear(elem.offsetLeft, elem.offsetTop);
-        level.removeChild(elem);
-      }
-      if (elem.posy >= elem.startposy + 235 || elem.posy <= elem.startposy - 235) {
-        disappear(elem.offsetLeft, elem.offsetTop);
-        level.removeChild(elem);
-      }
+        if(elem.posy < mew.posy*48 + 48 && elem.posy > mew.posy*48 && elem.posx < mew.posx*48 + 48 && elem.posx > mew.posx*48 && elem.className !="carotte") {
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"mew_hit");
+          clearInterval(ennemy_fireInterval);
+          level.removeChild(elem);
+          document.getElementById("div-mew").removeChild(mew);
+        }
+
+        //Delete elem if max range
+        if (elem.posx >= elem.startposx + 235 || elem.posx <= elem.startposx - 235) {
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"limit");
+          level.removeChild(elem);
+        }
+        if (elem.posy >= elem.startposy + 235 || elem.posy <= elem.startposy - 235) {
+          disappear(elem.offsetLeft, elem.offsetTop,elem.className,"limit");
+          level.removeChild(elem);
+        }
     }
   }
 }
 
-function disappear(x, y) {
-  var disappear = document.createElement("IMG")
-  disappear.src = "./img/Weapons/disappear.gif";
+function disappear(x, y,className, action) {
+  var disappear = document.createElement("IMG");
+  if (className =="carotte" && action == "hero_hit") {
+    disappear.src = "./img/Effects/blood.png";
+    new Audio('./sound/effects/hit.mp3').play();
+    hero.style.left ="338px";
+    hero.style.top="672px";
+    hero.posx = 7;
+    hero.posy = 14;
+  }else if(action == "mew-hit"){
+    disappear.src = "./img/Effects/fire.gif";
+    level.removeChild(mew);
+  } else if (className !="carotte" && action == "hero_hit") {
+    return;
+  }else {
+    disappear.src = "./img/Effects/disappear.gif";
+  }
   disappear.style.height = "30px";
   disappear.style.widht = "30px";
   disappear.style.position = "absolute";
@@ -299,6 +341,48 @@ function disappear(x, y) {
   setTimeout(function() {
     level.removeChild(disappear);
   },300)
+}
+
+function ennemy_fire(){
+  var elem = document.createElement("IMG");
+  elem.className = "carotte";
+  elem.speed = 7;
+  elem.direction = "LEFT";
+  elem.posy = mew.offsetTop + 24;
+  elem.posx = mew.offsetLeft - 10;
+  elem.src = "./img/Weapons/kunai_left.png";
+  elem.style.top = elem.posy + 'px';
+  elem.style.left = elem.posx + 'px';
+  level.appendChild(elem);
+  frame();
+
+}
+
+// On level closing
+function exitLevel() {
+  level_modal.classList.add("is-hidden");
+  level_modal.classList.remove("modal-show");
+  setTimeout( function closeModal() {
+    level_modal.classList.add("is-display-none");
+    exit_button.classList.add("is-hidden");
+    level_modal_score.classList.add("is-hidden");
+    level.classList.add("is-hidden");
+    level.innerHTML = '<div id="div-hero"></div>';
+    level_modal_title.classList.remove("is-scaled");
+    level_id = level_modal.niveau;
+    if (level_id == 1) {
+      level_modal_title.classList.remove("level-modal-title-1");
+    }
+    if (level_id == 2) {
+      level_modal_title.classList.remove("level-modal-title-2");
+    }
+    if (level_id == 3) {
+      level_modal_title.classList.remove("level-modal-title-3");
+    }
+    if (level_id == 4) {
+      level_modal_title.classList.remove("level-modal-title-4");
+    }
+  }, 500);
 }
 
 // Get the tiles
@@ -350,7 +434,6 @@ function move(event){
       weapon = "shuriken";
     }
   }
-
   hero.style.top = (hero.posy*48) +"px";
   hero.style.left = (hero.posx*48) + "px";
 }
