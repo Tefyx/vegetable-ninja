@@ -9,6 +9,8 @@ let exit_button;
 let level_modal;
 let level_modal_title;
 let level_modal_score;
+let level_death_counter;
+let death_counter;
 let hero;
 let direction;
 var weapon = "shuriken";
@@ -28,6 +30,8 @@ function init() {
   level_modal = document.getElementById("level-modal");
   level_modal_title = document.getElementById("level-modal-title");
   level_modal_score = document.getElementById("level-modal-score");
+  level_death_counter = document.getElementById("level-death-counter");
+  death_counter = document.getElementById("death-counter");
   exit_button = document.getElementById("exit-button");
 }
 
@@ -163,40 +167,63 @@ function showLevel(level_id) {
     level_modal_title.classList.add("is-scaled");
   }, 1000);
 
-  setTimeout(function showExitButton() {
+  setTimeout(function showPlayInterface() {
     exit_button.classList.remove("is-hidden");
     level_modal_score.classList.remove("is-hidden");
+    level_death_counter.classList.remove("is-hidden");
   }, 2000);
 
   document.onkeydown = move;
 }
 
-//Create and fire a projectile
+// On level closing
+function exitLevel() {
+  level_modal.classList.add("is-hidden");
+  level_modal.classList.remove("modal-show");
+  setTimeout( function closeModal() {
+    level_modal.classList.add("is-display-none");
+    exit_button.classList.add("is-hidden");
+    level_modal_score.classList.add("is-hidden");
+    level_death_counter.classList.add("is-hidden");
+    level.classList.add("is-hidden");
+    level.innerHTML = '<div id="div-hero"></div>';
+    level_modal_title.classList.remove("is-scaled");
+    level_id = level_modal.niveau;
+    if (level_id == 1) {
+      level_modal_title.classList.remove("level-modal-title-1");
+    }
+    if (level_id == 2) {
+      level_modal_title.classList.remove("level-modal-title-2");
+    }
+    if (level_id == 3) {
+      level_modal_title.classList.remove("level-modal-title-3");
+    }
+    if (level_id == 4) {
+      level_modal_title.classList.remove("level-modal-title-4");
+    }
+  }, 500);
+}
+
+// Create and fire a projectile
 function fire() {
 
-  //check if fired = false
+  // Check if fired = false
   if (!fired) {
-
-       //Initialize a shuriken
+       // Initialize a shuriken
        if (weapon == "shuriken") {
-
          fired = true;
          setTimeout(unfired, 500);
-
          var elem = document.createElement("IMG");
          elem.src = "./img/Weapons/shuriken.png";
          elem.className = "shuriken";
          elem.speed = 5;
        }
        if (weapon == "kunai") {
-
          fired = true;
          setTimeout(unfired, 1000);
-
          var elem = document.createElement("IMG");
          elem.className = "kunai"
          elem.speed = 7;
-
          if (direction =="UP") {
            elem.src = "./img/Weapons/kunai_up.png";
            elem.style.height = "60px";
@@ -214,24 +241,24 @@ function fire() {
            elem.src = "./img/Weapons/kunai_right.png";
          }
        }
+
        elem.direction = direction;
        elem.posy = hero.offsetTop + 24;
        elem.posx = hero.offsetLeft + 20;
        elem.startposy = hero.offsetTop + 24;
        elem.startposx = hero.offsetLeft + 20;
-
        elem.style.top = elem.posy + 'px';
        elem.style.left = elem.posx + 'px';
        level.appendChild(elem);
    }
 }
 
-//set fired to false
+// Set fired to false
 function unfired() {
   fired = false;
 }
 
-//Control movement of projectiles
+// Control movement of projectiles
 function frame() {
   for (var i = 0; i < level.children.length; i++) {
     var elem = level.children[i];
@@ -242,21 +269,24 @@ function frame() {
           elem.style.top = elem.posy + 'px';
           elem.posy = elem.posy - elem.speed;
           elem.style.left = elem.posx + 'px';
-        }else if (elem.direction == "LEFT") { // LEFT (A)
+        } 
+        else if (elem.direction == "LEFT") { // LEFT (A)
           elem.style.left = elem.posx + 'px';
           elem.posx = elem.posx - elem.speed;
           elem.style.top = elem.posy + 'px';
-        }else if (elem.direction == "RIGHT") { // RIGHT (D)
+        } 
+        else if (elem.direction == "RIGHT") { // RIGHT (D)
           elem.style.left = elem.posx + 'px';
           elem.posx = elem.posx + elem.speed;
           elem.style.top = elem.posy + 'px';
-        }else if (elem.direction == "DOWN") { // DOWN (S)
+        } 
+        else if (elem.direction == "DOWN") { // DOWN (S)
           elem.style.top = elem.posy + 'px';
           elem.posy = elem.posy + elem.speed;
           elem.style.left = elem.posx + 'px';
         }
-        if(getTile(Math.floor(elem.posy/48), Math.floor(elem.posx/48)).traversable) {
-        }else {
+        if(getTile(Math.floor(elem.posy/48), Math.floor(elem.posx/48)).traversable) {}
+        else {
           disappear(elem.offsetLeft, elem.offsetTop,elem.className,"wall_hit");
           level.removeChild(elem);
         }

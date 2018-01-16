@@ -116,6 +116,39 @@ body {
   transition: .5s;
 }
 
+.level-death-counter {
+  transition: .5s;
+  position: absolute;
+  top: 50px;
+  display: flex;
+}
+
+.death-counter {
+  color: white;
+  font-family: Last Ninja;
+  font-size: 25px;
+  position: relative;
+  margin-top: 50%;
+  margin-left: 10px;
+  transform: translateY(-96%);
+}
+
+.level-death-counter-icon {
+  background-image: url(../img/ico/death-counter.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 75px;
+  height: 75px;
+}
+
+.level-interface {
+  width: 100%;
+  height: 775px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .level {
   position: absolute;
   top: 50%;
