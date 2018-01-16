@@ -154,7 +154,7 @@ function showLevel(level_id) {
     mew.posx = 14;
     mew.posy = 6;
     mew.traversable = false;
-    document.getElementById("div-mew").appendChild(mew);
+    level.appendChild(mew);
     frameInterval = setInterval(frame, 10);
     ennemy_fireInterval = setInterval(ennemy_fire, 1500);
   }, 100);
@@ -299,7 +299,7 @@ function frame() {
           disappear(elem.offsetLeft, elem.offsetTop,elem.className,"mew_hit");
           clearInterval(ennemy_fireInterval);
           level.removeChild(elem);
-          document.getElementById("div-mew").removeChild(mew);
+          level.removeChild(mew);
         }
 
         //Delete elem if max range
@@ -383,6 +383,8 @@ function exitLevel() {
       level_modal_title.classList.remove("level-modal-title-4");
     }
   }, 500);
+  clearInterval(frameInterval);
+  clearInterval(ennemy_fireInterval);
 }
 
 // Get the tiles
