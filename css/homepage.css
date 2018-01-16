@@ -116,6 +116,39 @@ body {
   transition: .5s;
 }
 
+.level-death-counter {
+  transition: .5s;
+  position: absolute;
+  top: 50px;
+  display: flex;
+}
+
+.death-counter {
+  color: white;
+  font-family: Last Ninja;
+  font-size: 25px;
+  position: relative;
+  margin-top: 50%;
+  margin-left: 10px;
+  transform: translateY(-96%);
+}
+
+.level-death-counter-icon {
+  background-image: url(../img/ico/death-counter.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 75px;
+  height: 75px;
+}
+
+.level-interface {
+  width: 100%;
+  height: 775px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .level {
   position: absolute;
   top: 50%;
@@ -200,4 +233,34 @@ body {
     object-fit: contain;
     width: 50px;
     height: 50px;
+}
+
+.kunai {
+  position: absolute;
+  height: 20px;
+  width: 60px;
+}
+
+.shuriken {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  animation:spin 2s linear infinite;
+  -webkit-animation:spin 2s linear infinite;
+  -moz-animation:spin 2s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.kunai{
+  position: absolute;
+  height: 20px;
+  width: 60px;
+}
+.carotte{
+  position: absolute;
+  height: 10px;
+  width: 30px;
 }

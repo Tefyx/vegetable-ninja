@@ -30,13 +30,17 @@
     </div>
     <div id="level-modal" class="level-modal is-display-none is-hidden is-small">
       <div id="level-modal-title" class="level-modal-title"></div>
-      <h2 id="level-modal-score" class="level-modal-score is-hidden">Score :<span id="score"> 000</span></h2>
       <a id="exit-button" onclick="exitLevel()" class="exit-button is-hidden"></a>
-      <div id="level" class="level is-hidden">
-        <div id="div-hero">
-           <!-- <img id="hero" src="img/characters/ninja.png" class="hero"/> -->
-       </div>
-     </div>
+      <div class="level-interface">
+        <h2 id="level-modal-score" class="level-modal-score is-hidden">Score :<span id="score"> 000</span></h2>
+        <div id="level-death-counter" class="level-death-counter is-hidden">
+          <div class="level-death-counter-icon"></div>
+          <span class="death-counter" id="death-counter">1</span>
+        </div>
+        <div id="level" class="level is-hidden">
+          <div id="div-hero"></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
